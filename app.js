@@ -19,6 +19,6 @@ app.use(express.static(__dirname + '/public'));
 // Routes
 app.get('/', routes.index);
 
-app.listen(3000, function(){
+app.listen(proc.env.PORT ||3000, function(){
   console.log("Express server listening on port");
 });
