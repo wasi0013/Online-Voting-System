@@ -19,6 +19,10 @@ app.use(express.static(__dirname + '/public'));
 // Routes
 app.get('/', routes.index);
 
-app.listen(process.env.PORT ||3000, function(){
-  console.log("Express server listening on port");
+//defining app_port for openshift hosting compatibility
+var app_port = process.env.OPENSHIFT_NODEJS_PORT ||3000;
+var app_ip =process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+
+app.listen(app_port,app_ip, function(){
+  console.log("Express server listening on port "+app_port+"& app_ip "+app_ip);
 });

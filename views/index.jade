@@ -1,2 +1,52 @@
-h1= title
-p Welcome to #{title}
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='../../favicon.ico')
+    title Online-Voting-System
+    // Bootstrap core CSS
+    link(href='../css/bootstrap.css', rel='stylesheet')
+    // Bootstrap theme
+    link(href='../css/bootstrap-theme.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='../css/theme.css', rel='stylesheet')
+
+.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+  .container
+    .navbar-header
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href='http://votingsystem-wasi0013.rhcloud.com/') Online-Voting-System
+    .navbar-collapse.collapse
+      ul.nav.navbar-nav
+        li.active
+          a(href='#Home') Home
+        li
+          a(href='#QuickVote') Quick Vote
+        li
+          a(href='#Stats') Stats
+        li
+          a(href='#UserInfo') User Information 
+        li
+          a(href='http://github.com/wasi0013/Online-Voting-System') View on github
+        li
+          a(href='http://about.me/wasi0013') About Author
+
+    // /.nav-collapse
+.container.theme-showcase(role='main')
+  // Main jumbotron for a primary marketing message or call to action
+  .jumbotron
+    h1 Online Voting System!
+    p
+      | This application is currently under developing. It is based on the electoral system of Bangladesh.   
+    p
+      a.btn.btn-primary.btn-lg(href='http://github.com/wasi0013/Online-Voting-System', role='button') View Source on Github»
+  .page-header
+

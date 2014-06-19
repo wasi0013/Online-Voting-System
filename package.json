@@ -2,16 +2,17 @@
     "name": "Online-Voting-System"
   , "version": "0.0.1"
   , "private": true
+  , "main": "app.js"
   , "dependencies": {
       "express": "4.4.2"
     , "jade": ">= 0.0.1"
-  },
-  "scripts": {
+  }
+  ,  "scripts": {
   "start": "node app.js"
-  },
-  
-   "engines": {
+  }
+  , "engines": {
     "node": "0.10.x",
     "npm": "1.4.x"
   }
 }
+
