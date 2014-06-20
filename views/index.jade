@@ -23,7 +23,7 @@ html(lang='en')
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand(href='http://votingsystem-wasi0013.rhcloud.com/') Online-Voting-System
+      a.navbar-brand(href='http://votingsystem-wasi0013.rhcloud.com/') Online Voting System
     .navbar-collapse.collapse
       ul.nav.navbar-nav
         li.active
@@ -39,7 +39,14 @@ html(lang='en')
         li
           a(href='http://about.me/wasi0013') About Author
 
-    // /.nav-collapse
+        form.navbar-form.navbar-right(role='form')
+          .form-group
+            input.form-control(type='text', placeholder='Email')
+          .form-group
+            input.form-control(type='password', placeholder='Password')
+          button.btn.btn-success(type='submit') Sign in
+      // /.navbar-collapse
+
 .container.theme-showcase(role='main')
   // Main jumbotron for a primary marketing message or call to action
   .jumbotron
