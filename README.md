@@ -1,11 +1,11 @@
-[Online-Voting-System](http://votingsystem-wasi0013.rhcloud.com/) [![Dependency Status](https://david-dm.org/wasi0013/Online-Voting-System.svg)](https://david-dm.org/wasi0013/Online-Voting-System)
-==================================================
+Online-Voting-System
+====================
 
-A simple voting system developed on the basis of Electoral system of Bangladesh using node.js, express.js, jade and Bootstrap
+A Simple Voting System developed on the basis of Electoral system of Bangladesh using Meteor.js, Twitter Bootstrap-3
 
 Features:  
 ---------
-  - [x] Home page
+  - [ ] Home page
   - [ ] Admin
   - [ ] Login
   - [ ] User registration and signup (With password Strength checker)
