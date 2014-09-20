@@ -1,0 +1,19 @@
+# Meteor packages used by this project, one per line.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-platform
+autopublish
+insecure
+accounts-password
+mizzao:bootstrap-3
+jquery
+meteorhacks:npm
+iron:router
+
+
+npm-container
+mrt:accounts-ui-bootstrap-3
+sacha:spin
+

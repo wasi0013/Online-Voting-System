@@ -1,0 +1,54 @@
+<template name="signup">
+
+<form class="form-signin" role="form">
+    <h1>Sign Up</h1>
+    <input type="text" class="form-control" placeholder="voterid" id="su-username" required >
+    <input type ="text" class="form-control" placeholder ="password" id='su-password' required >
+    <button class="btn btn-lg btn-primary btn-block" >Sign Up</button>
+
+
+</form>
+
+</template>
+
+<template name="login">
+
+
+<form class="form-signin has-error" role="form">
+    <h1>Log In</h1>
+    <input type="text" class="form-control" placeholder="voterid" id="su-username" required >
+    <input type ="text" class="form-control" placeholder ="password" id='su-password' required >
+    <button class="btn btn-lg btn-primary btn-block" >Log In</button>
+
+
+</form>
+    
+
+</template>
+
+<template name="logout">
+
+({{currentUser.username}})
+<button class="btn btn-lg btn-primary btn-block"> log out </button>
+
+
+
+</template>
+
+
+<template name="loginSignup">
+
+{{#if logginIn}} 
+   logging in...{{> spinner}}
+{{else}}
+        {{#if currentUser}}
+            {{>logout}}
+        {{else}}
+            {{>signup}}
+
+            {{>login}}
+        {{/if}}
+{{/if}}
+
+
+</template>
