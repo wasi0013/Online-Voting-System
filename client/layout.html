@@ -6,8 +6,6 @@
 
 <template name="layout">
 
-<link rel="stylesheet" href="carousel.css" media="screen"/>
-
     <div class="navbar-wrapper">
       <div class="container">
 
@@ -24,14 +22,14 @@
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">Quick Vote</a></li>
-                <li><a href="#contact">User Information</a></li>
+                <li class="active"><a href="{{pathFor 'home'}}">Home</a></li>
+                <li><a href="{{pathFor 'quickVote'}}">Quick Vote</a></li>
+                <li><a href="{{pathFor 'userInformation'}}">User Information</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Stats<span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Quick Vote</a></li>
-                    <li><a href="#">NationalVote</a></li>
+                    <li><a href="{{pathFor 'stats'}}">Quick Vote</a></li>
+                    <li><a href="{{pathFor 'stats'}}">NationalVote</a></li>
                   </ul>
                 </li>
                  <li class="nav navbar-nav navbar-right">
@@ -73,7 +71,7 @@
               <h1>Full featured Vote</h1>
               <p>This project demonstrates the power of meteor by creating a full featured voting system with ease of use. Take a look at the quick votes and other features of this application.
               </p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+              <p><a class="btn btn-lg btn-primary" href="http://en.wikipedia.org/wiki/Elections_in_Bangladesh" target="_blank" role="button">Learn more</a></p>
             </div>
           </div>
         </div>
@@ -83,7 +81,7 @@
             <div class="carousel-caption">
               <h1>Secure, Real time Data processing and updates</h1>
               <p></p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+              <p><a class="btn btn-lg btn-primary" href="http://www.ecs.gov.bd/English/index.php" target="_blank" role="button">Browse Official Website >>></a></p>
             </div>
           </div>
         </div>
@@ -98,13 +96,17 @@
       </a>
     </div>
 
-<div class="container">
 
-<div id="main" class="row-fluid">
 
 {{> yield}}
-</div>
-</div>
 
+ <hr class="divider">
+ <footer>
+        <p> <center>Copyright Protected 2014 &copy; </center></p>
+
+      </footer>
 
 </template>
+
+
+

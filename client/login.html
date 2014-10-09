@@ -1,11 +1,83 @@
 <template name="signup">
 
 <form class="form-signin" role="form">
-    <h1>Sign Up</h1>
+    <h1 class="animated bounceInDown">Sign Up</h1>
     <input type="text" class="form-control" placeholder="voterid" id="su-username" required >
-    <input type ="text" class="form-control" placeholder ="password" id='su-password' required >
+    <input type ="password" class="form-control" placeholder ="password" id='su-password' required >
+    <label for="DOB"> Date of Birth </label> 
+    <input class = 'form-control datepicker' type="date" name="DOB" min="2000-01-02">
+    
+    <label for="address">address</label> 
+    <input class = 'form-control' type="text" name="address">
+    <p><label for="District">Name of District:</label> 
+    
+    <select class="btn btn-default" required name="District">
+
+    <option>Chittagong</option>
+    <option>Dhaka</option>
+    <option>Rajshahi</option>
+    <option>Khulna</option>
+    <option>Comilla</option>
+
+  </select> </p>
+   <p><label for="Upozilla">Name of Upozilla:</label> 
+    
+    <select class="btn btn-default" required name="Upozilla">
+
+    <option>Chittagong</option>
+    <option>Dhaka</option>
+    <option>Rajshahi</option>
+    <option>Khulna</option>
+    <option>Comilla</option>
+
+  </select>
+    </p>
+  <p> <label for="Pourashava">Pourashava Name:</label> 
+    
+    <select class="btn btn-default" required name="Pourashava">
+
+    <option>Chittagong</option>
+    <option>Dhaka</option>
+    <option>Rajshahi</option>
+    <option>Khulna</option>
+    <option>Comilla</option>
+
+  </select> 
+  </p>
+
+
+    <label for="citycorporation">City Corporation Name:</label> 
+    
+    <select class="btn btn-default" required name="citycorporation">
+
+    <option>Chittagong</option>
+    <option>Dhaka</option>
+    <option>Rajshahi</option>
+    <option>Khulna</option>
+    <option>Comilla</option>
+
+  </select>
+    <p> <label for="bloodGroup">Blood Group</label> 
+        <select class="btn btn-default" required name="citycorporation">
+
+            <option>O+</option>
+            <option>O-</option>
+            <option>A+</option>
+            <option>A-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+            <option>B+</option>
+            <option>B-</option>
+
+        </select>
+
+
+    </p>
+<br>
+
     <button class="btn btn-lg btn-primary btn-block" >Sign Up</button>
 
+ 
 
 </form>
 
@@ -14,10 +86,10 @@
 <template name="login">
 
 
-<form class="form-signin has-error" role="form">
+<form class="form-signin" role="form">
     <h1>Log In</h1>
     <input type="text" class="form-control" placeholder="voterid" id="su-username" required >
-    <input type ="text" class="form-control" placeholder ="password" id='su-password' required >
+    <input type ="password" class="form-control" placeholder ="password" id='su-password' required >
     <button class="btn btn-lg btn-primary btn-block" >Log In</button>
 
 

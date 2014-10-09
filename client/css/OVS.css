@@ -152,3 +152,7 @@ list-style: none;
     margin-top: 120px;
   }
 }
+
+.col-lg-4{
+ -webkit-animation-delay: 2s;
+}
