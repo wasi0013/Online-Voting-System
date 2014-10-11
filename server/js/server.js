@@ -1,4 +1,29 @@
-console.log("Hello From server");
+console.log("Hello From server ");
+
+if(Meteor.users.find().count()===0){
+
+   Accounts.createUser({
+        username: "admin",
+        email: "admin@admin.com",
+        password: "admin",
+        })
+    userinfo.insert({
+        username: "admin",
+        email: "admin@admin.com",
+        });
+
+}
+
+Meteor.publish("users",function(){
+
+    return Meteor.users.find();
+})
+Meteor.publish("userinfo",function(){
+
+    return userinfo.find();
+})
+
+
 
 /*
 profile

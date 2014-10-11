@@ -1,17 +1,33 @@
 <template name="signup">
 
+{{#if currentUser}}
+<p>You are already registered</p>
+
+    {{>userInformation}}
+
+
+{{else}}
+    
+
 <form class="form-signin" role="form">
     <h1 class="animated bounceInDown">Sign Up</h1>
     <input type="text" class="form-control" placeholder="voterid" id="su-username" required >
     <input type ="password" class="form-control" placeholder ="password" id='su-password' required >
-    <label for="DOB"> Date of Birth </label> 
-    <input class = 'form-control datepicker' type="date" name="DOB" min="2000-01-02">
+    <input type="email" class="form-control" placeholder="email" id="su-email" required >
+
+    <input type="text" class="form-control" placeholder="Your Full Name" id="su-name" required >
+    <input type="text" class="form-control" placeholder="father's Name" id="su-father" required >
+    <input type="text" class="form-control" placeholder="Mother's Name" id="su-mother" required >
     
-    <label for="address">address</label> 
-    <input class = 'form-control' type="text" name="address">
-    <p><label for="District">Name of District:</label> 
+
+    <label for="su-DOB"> Date of Birth </label> 
+    <input class = 'form-control datepicker' type="date" id="su-DOB" min="2000-01-02" required>
     
-    <select class="btn btn-default" required name="District">
+    <label for="su-address">address</label> 
+    <input class = 'form-control' type="text" name="su-address">
+    <p><label for="su-district">Name of District:</label> 
+    
+    <select class="btn btn-default" required id="su-district">
 
     <option>Chittagong</option>
     <option>Dhaka</option>
@@ -20,9 +36,9 @@
     <option>Comilla</option>
 
   </select> </p>
-   <p><label for="Upozilla">Name of Upozilla:</label> 
+   <p><label for="su-upozilla">Name of Upozilla:</label> 
     
-    <select class="btn btn-default" required name="Upozilla">
+    <select class="btn btn-default" required id="su-upozilla">
 
     <option>Chittagong</option>
     <option>Dhaka</option>
@@ -32,9 +48,9 @@
 
   </select>
     </p>
-  <p> <label for="Pourashava">Pourashava Name:</label> 
+  <p> <label for="su-pourashava">Pourashava Name:</label> 
     
-    <select class="btn btn-default" required name="Pourashava">
+    <select class="btn btn-default" required id="su-pourashava">
 
     <option>Chittagong</option>
     <option>Dhaka</option>
@@ -46,9 +62,9 @@
   </p>
 
 
-    <label for="citycorporation">City Corporation Name:</label> 
+    <label for="su-citycorporation">City Corporation Name:</label> 
     
-    <select class="btn btn-default" required name="citycorporation">
+    <select class="btn btn-default" required id="su-citycorporation">
 
     <option>Chittagong</option>
     <option>Dhaka</option>
@@ -57,8 +73,8 @@
     <option>Comilla</option>
 
   </select>
-    <p> <label for="bloodGroup">Blood Group</label> 
-        <select class="btn btn-default" required name="citycorporation">
+    <p> <label for="su-bloodgroup">Blood Group</label> 
+        <select class="btn btn-default" required name="su-bloodgroup">
 
             <option>O+</option>
             <option>O-</option>
@@ -75,11 +91,21 @@
     </p>
 <br>
 
-    <button class="btn btn-lg btn-primary btn-block" >Sign Up</button>
+    <button class="btn btn-lg btn-success btn-block" role="button" id="su-signup">Sign Up</button>
+
+
+            <h3> Already have an account? </h3>
+            <center>
+            <p><a class="btn btn-lg btn-primary btn-block animated flip" href="{{pathFor 'loginSignup'}}" role="button" id="su-login">Log in!</a></p>
+        </center>
+        
 
  
 
 </form>
+
+
+{{/if}}
 
 </template>
 
@@ -87,10 +113,10 @@
 
 
 <form class="form-signin" role="form">
-    <h1>Log In</h1>
-    <input type="text" class="form-control" placeholder="voterid" id="su-username" required >
-    <input type ="password" class="form-control" placeholder ="password" id='su-password' required >
-    <button class="btn btn-lg btn-primary btn-block" >Log In</button>
+    <h1 class="animated bounceInDown">Log In</h1>
+    <input type="text" class="form-control" placeholder="voterid" id="li-username" required >
+    <input type ="password" class="form-control" placeholder ="password" id='li-password' required >
+    <button class="btn btn-lg btn-primary btn-block" id="li-login">Log In</button>
 
 
 </form>
@@ -100,10 +126,9 @@
 
 <template name="logout">
 
-({{currentUser.username}})
-<button class="btn btn-lg btn-primary btn-block"> log out </button>
-
-
+   <center> 
+<a class="btn" href="{{pathFor 'loginSignup'}}" id="lo-logout"> log out </a>
+</center>
 
 </template>
 
@@ -116,9 +141,14 @@
         {{#if currentUser}}
             {{>logout}}
         {{else}}
-            {{>signup}}
+            {{>login}}<center>
+            {{#if errorMessage}}
+  <div class="alert alert-danger animated fadeOut" role="alert">Login failed!</div>
+            {{/if}} 
+            <h3> Don't have an account? </h3>
+            <p><a class="btn btn-lg btn-success  animated flip" href="{{pathFor 'signup'}}" role="button" id="ls-signup">Sign up here!</a></p>
+        </center>
 
-            {{>login}}
         {{/if}}
 {{/if}}
 

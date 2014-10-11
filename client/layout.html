@@ -33,8 +33,12 @@
                   </ul>
                 </li>
                  <li class="nav navbar-nav navbar-right">
-                      <a class="btn animated bounce" href="{{pathFor 'loginSignup'}}" role="button">Sign In/Up</a>
-                  </li>
+                     {{#if currentUser}}
+                    {{>logout}}
+                      {{else}}
+                        <a class="btn animated bounce" href="{{pathFor 'loginSignup'}}" role="button">Sign In/Up</a>
+                    {{/if}}
+                </li>
                    
               </ul>
             </div>

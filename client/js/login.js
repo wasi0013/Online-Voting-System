@@ -2,24 +2,73 @@
 
 Template.signup.events({
 
-    'click button': function (evt,template){
+    'click #su-signup': function (evt,template){
+        if(userinfo.find({username: template.find("#su-username").value}).count()>0){
+        alert("The voterid is already registered!");
+    }
+    else{
     Accounts.createUser({
         username: template.find("#su-username").value,
-        password: template.find('#su-password').value
+        email: template.find("#su-email").value,
+        password: template.find('#su-password').value,
+        },
+        function (err){
+            if (err){
+                console.log(err)
+                alert("An error occured!")
 
-    })
+
+
+            }
+            else{       
+
+                userinfo.insert({
+                    username: template.find("#su-username").value,
+                    email: template.find("#su-email").value,
+                    profile:{
+                        name: template.find("#su-name").value,
+                        father:template.find("#su-father").value,
+                        mother:template.find("#su-mother").value,
+                        address:template.find("#su-address").value,
+                        DOB: template.find("#su-DOB").value,
+                        upozilla:template.find("#su-upozilla").value,
+                        pourashava:template.find("#su-pourashava").value,
+                        district: template.find("#su-district").value,
+                        blood: template.find("#su-bloodgroup").value,
+                        contact:template.find("#su-contact").value,
+                        },
+                    })
+                 alert("Signup successful")
+        
+            }
+
+
+
+        })
+    }
+
+
+
 
 }
-
 })
 
 
 Template.login.events({
-    'click button': function (evt,template){
+    'click #li-login': function (evt,template){
         evt.preventDefault()
         Meteor.loginWithPassword(
             template.find('#li-username').value,
-            template.find("#li-password").value
+            template.find("#li-password").value,
+            function(error) {
+              if (error) {
+                alert("login failed, Error: "+error.message)
+                
+                 
+              }else{
+                
+              }
+            }
 
 
             )
@@ -30,7 +79,7 @@ Template.login.events({
 })
 
 Template.logout.events({
-    'click button': function (evt, template){
+    'click #lo-logout': function (evt, template){
         evt.preventDefault()
         Meteor.logout()
 
