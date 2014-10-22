@@ -1,5 +1,28 @@
 <template name="quickVote">
-<h1>This is quick vote template</h1>
+
+{{>timer}}
+
+
+{{#if isAdmin}}
+<form class="form-signin" role="form">
+    <h2>Candidate registration</h2>
+
+
+
+</form>
+{{else}}
+<form class="form-signin" role="form">
+<p> user view </p>
+
+</form>
+
+
+
+
+{{/if}}
+
+
+
 
 </template>
 

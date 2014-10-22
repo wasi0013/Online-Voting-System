@@ -23,7 +23,12 @@ Meteor.publish("userinfo",function(){
     return userinfo.find();
 })
 
-
+userinfo.allow({
+    insert: function (userId, doc) {
+        return true
+    },
+    
+});
 
 /*
 profile

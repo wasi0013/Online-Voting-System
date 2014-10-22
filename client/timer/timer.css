@@ -1,0 +1,49 @@
+.background {
+    border-style: none;
+    width: 62px;
+    height: 58px;
+}
+.numbers {
+    border-style: none;
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+    width: 62px;
+    height: 42px;
+    text-align: center; 
+    font-family: Arial; 
+    font-size: 34px;
+    font-weight: normal;    /* options are normal, bold, bolder, lighter */
+    color: #FFFFFF;     /* change color using the hexadecimal color codes for HTML */
+}
+.title {    /* the styles below will affect the title under the numbers, i.e., “Days”, “Hours”, etc. */
+    border: none;    
+    padding: 0px;
+    margin: 0px 3px;
+    width: 62px;
+    text-align: center; 
+    font-family: Arial; 
+    font-size: 10px; 
+    font-weight: bold;    /* options are normal, bold, bolder, lighter */
+    color: #999999;    /* change color using the hexadecimal color codes for HTML */
+    background-color: #000000;  
+}
+#form {    /* the styles below will affect the outer border of the countdown timer */
+    width: 400px;
+    height: 95px;
+    border-style: ridge;    /* options are none, dotted, dashed, solid, double, groove, ridge, inset, outset */
+    border-width: 2px;
+    border-color: #666666;  /* change color using the hexadecimal color codes for HTML */ 
+    background-color: #000000;
+    padding: 5px;
+    margin: 0px auto;
+    position: relative;   /* leave as "relative" to keep timer centered on your page, or change to "absolute" then change the values of the "top" and "left" properties to position the timer */
+    top: 0px;            /* change to position the timer */
+    left: 0px;            /* change to position the timer; delete this property and it's value to keep timer centered on page */
+}
+.line {
+    border-style: none;
+    width: 62px; 
+    height: 2px;
+    z-index: 15;
+}

@@ -3,6 +3,7 @@
 Template.signup.events({
 
     'click #su-signup': function (evt,template){
+        var flag=true
         if(userinfo.find({username: template.find("#su-username").value}).count()>0){
         alert("The voterid is already registered!");
     }
@@ -16,12 +17,15 @@ Template.signup.events({
             if (err){
                 console.log(err)
                 alert("An error occured!")
+                flag=false;
 
 
 
             }
-            else{       
+        })
 
+     if (flag){       
+                alert("Signup successful")
                 userinfo.insert({
                     username: template.find("#su-username").value,
                     email: template.find("#su-email").value,
@@ -38,13 +42,10 @@ Template.signup.events({
                         contact:template.find("#su-contact").value,
                         },
                     })
-                 alert("Signup successful")
+                 
         
             }
 
-
-
-        })
     }
 
 

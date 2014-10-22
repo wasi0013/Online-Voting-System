@@ -1,11 +1,22 @@
 <template name="userInformation">
     <center>
-    <h1>User information</h1>
-    
-    
+    <h1 >User information</h1>
+        </center>
+<form class="form-signin" role="form">
+    <p class="well"> Voter ID: {{username}}</p>
+    <p class="well">email: {{email}}</p>
+    <p class="well"> Name: {{profile.name}}</p>
+
+    <p class="well"> Father's name:{{profile.father}}</p>
+    <p class="well"> Mother's name: {{ profile.mother }}</p>
+    <p class="well"> birth date: {{profile.DOB}}</p>
+    <p class="well"> contact: {{profile.contact}}</p>
+
+</form>
 
 
-    </center>
+
+
 
     
 </template>

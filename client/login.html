@@ -1,10 +1,14 @@
 <template name="signup">
 
 {{#if currentUser}}
-<p>You are already registered</p>
+<center> 
+    <p class="alert alert-danger">You are already registered!</p>
+    <p>
+        <a class="btn btn-lg btn-success animated bounce" href="{{pathFor 'userInformation' _id=currentUser.username }}" role="button" id="profile">Goto Your profile</a>
+    </p>
+    </center>
 
-    {{>userInformation}}
-
+    
 
 {{else}}
     
@@ -24,7 +28,7 @@
     <input class = 'form-control datepicker' type="date" id="su-DOB" min="2000-01-02" required>
     
     <label for="su-address">address</label> 
-    <input class = 'form-control' type="text" name="su-address">
+    <input class = 'form-control' type="text" id="su-address">
     <p><label for="su-district">Name of District:</label> 
     
     <select class="btn btn-default" required id="su-district">
@@ -74,7 +78,7 @@
 
   </select>
     <p> <label for="su-bloodgroup">Blood Group</label> 
-        <select class="btn btn-default" required name="su-bloodgroup">
+        <select class="btn btn-default" required id="su-bloodgroup">
 
             <option>O+</option>
             <option>O-</option>
@@ -89,6 +93,9 @@
 
 
     </p>
+     <label for="su-contact">contact</label> 
+    <input class = 'form-control' type="text" id="su-contact">
+
 <br>
 
     <button class="btn btn-lg btn-success btn-block" role="button" id="su-signup">Sign Up</button>
@@ -126,9 +133,7 @@
 
 <template name="logout">
 
-   <center> 
-<a class="btn" href="{{pathFor 'loginSignup'}}" id="lo-logout"> log out </a>
-</center>
+<a class="btn" href="{{pathFor 'loginSignup'}}" id="lo-logout" role="button"> log out </a>
 
 </template>
 
@@ -136,15 +141,19 @@
 <template name="loginSignup">
 
 {{#if logginIn}} 
-   logging in...{{> spinner}}
+   logging in...
+   {{> spinner}}
 {{else}}
         {{#if currentUser}}
-            {{>logout}}
+        <center>
+            <h1> You are successfully logged in! </h1>
+            <p>
+        <a class="btn btn-lg btn-success animated bounce" href="{{pathFor 'userInformation' _id=currentUser.username }}" role="button" id="profile">Goto Your profile</a>
+    </p>
+</center>
+
         {{else}}
             {{>login}}<center>
-            {{#if errorMessage}}
-  <div class="alert alert-danger animated fadeOut" role="alert">Login failed!</div>
-            {{/if}} 
             <h3> Don't have an account? </h3>
             <p><a class="btn btn-lg btn-success  animated flip" href="{{pathFor 'signup'}}" role="button" id="ls-signup">Sign up here!</a></p>
         </center>
