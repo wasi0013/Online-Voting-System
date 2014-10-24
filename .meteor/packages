@@ -4,8 +4,6 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
 accounts-password
 mizzao:bootstrap-3
 jquery
@@ -16,4 +14,5 @@ iron:router
 npm-container
 mrt:accounts-ui-bootstrap-3
 sacha:spin
+rgoomar:bootstrap-validator
 
