@@ -5,23 +5,18 @@ A Simple Voting System developed on the basis of Electoral system of Bangladesh 
 
 Features:  
 ---------
-  - [ ] Home page
-  - [ ] Admin
-  - [ ] Login
-  - [ ] User registration and signup (With password Strength checker)
-  - [ ] User information page
-  - [ ] Stable Vote Clock for all votes 
+  - [x] Home page
+  - [x] Admin
+  - [x] Login
+  - [x] User registration and signup
+  - [x] User information page
+  - [x] Stable Vote Clock for all votes 
   - [ ] Quick Vote 
   - [ ] Stats 
-  - [ ] Local vote
-  - [ ] City Corporation Vote
-  - [ ] Upozilla Vote
-  - [ ] Ctg Hill Area vote
-  - [ ] Pourashava Vote
   - [ ] Team registration and management for National Election
   - [ ] Seats Planning 
   - [ ] National Election Voting process
-  - [ ] Reset control on Admin
+  - [ ] Vote Reset control on Admin page
   - [ ] National election result
-  - [ ] History 
+  - [ ] History and News feed
   - [ ] Robust admin page with greater and flexible control and quick access
