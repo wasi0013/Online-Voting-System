@@ -21,11 +21,56 @@
 </form>
 {{else}}
 <form class="form-signin" role="form">
-<p> user view </p>
+    
+
+     <div class="dropdown">
+        <a href="#" class="dropdown-toggle btn btn-lg btn-block" data-toggle="dropdown">Register as Candidate<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li>
+                      <form class="form-signin" role="form">
+                    <label for="c-username"> voterid 
+                     <input type="text" class="form-control" placeholder="Enter your voterid!" id="c-username" required > </label>
+                     <button class="btn btn-lg btn-success">Register</button>
+                   </form>
+                    </li>
+    
+                  </ul>
+
+
+                
+    </div>
+
+    <div class="dropdown">
+        <a href="#" class="dropdown-toggle btn btn-lg btn-block" data-toggle="dropdown"> Vote <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li>
+                      <form class="form-signin" role="form">
+                        <p class="text-success"> Choose Candidate:
+                        <select class="btn btn-default" required id="su-pourashava">
+                            <option>Chittagong</option>
+                            <option>Dhaka</option>
+                            <option>Rajshahi</option>
+                            <option>Khulna</option>
+                            <option>Comilla</option>
+                        </select> 
+                        </p>
+                        <p>
+                        <center><button class="btn btn-lg btn-warning"> Vote!  <span class="glyphicon glyphicon-thumbs-up"> </span></button></center>
+                      </p>
+                      </form>
+                    </li>
+    
+                  </ul>
+
+                  
+                
+    </div>
+
+
+
+
 
 </form>
-
-
 
 
 {{/if}}
