@@ -37,6 +37,7 @@ Template.signup.events({
                         DOB: template.find("#su-DOB").value,
                         upozilla:template.find("#su-upozilla").value,
                         pourashava:template.find("#su-pourashava").value,
+                        citycorporation:template.find("#su-citycorporation").value,
                         district: template.find("#su-district").value,
                         blood: template.find("#su-bloodgroup").value,
                         contact:template.find("#su-contact").value,
