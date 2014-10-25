@@ -1,0 +1,1 @@
+console.log("Digital Online Voting System Console: (Please don't paste here code that you don't understand!)")
