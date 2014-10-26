@@ -1,118 +1,106 @@
 <template name="signup">
 
-{{#if currentUser}}
-<center> 
-    <p class="alert alert-danger">You are already registered!</p>
-    <p>
-        <a class="btn btn-lg btn-success animated bounce" href="{{pathFor 'userInformation' _id=currentUser.username }}" role="button" id="profile">Goto Your profile</a>
-    </p>
-    </center>
+    {{#if currentUser}}
+        <center> 
+            <p class="alert alert-danger">You are already registered!</p>
+            <p><a class="btn btn-lg btn-success animated bounce" href="{{pathFor 'userInformation' _id=currentUser.username }}" role="button" id="profile">Goto Your profile</a></p>
+        </center>
+    {{else}}
+        <form class="form-signin" role="form">
+        <h1 class="animated bounceInDown">Sign Up</h1>
+        <input type="text" class="form-control" placeholder="voterid" id="su-username" required >
+        <input type ="password" class="form-control" placeholder ="password" id='su-password' required >
+        <input type="email" class="form-control" placeholder="email" id="su-email" required >
 
-    
+        <input type="text" class="form-control" placeholder="Your Full Name" id="su-name" required >
+        <input type="text" class="form-control" placeholder="father's Name" id="su-father" required >
+        <input type="text" class="form-control" placeholder="Mother's Name" id="su-mother" required >
+        
 
-{{else}}
-    
+        <label for="su-DOB"> Date of Birth </label> 
+        <input class = 'form-control datepicker' type="date" id="su-DOB" min="2000-01-02" required>
+        
+        <label for="su-address">address</label> 
+        <input class = 'form-control' type="text" id="su-address">
+        <p><label for="su-district">Name of District:</label> 
+        
+        <select class="btn btn-default" required id="su-district">
 
-<form class="form-signin" role="form">
-    <h1 class="animated bounceInDown">Sign Up</h1>
-    <input type="text" class="form-control" placeholder="voterid" id="su-username" required >
-    <input type ="password" class="form-control" placeholder ="password" id='su-password' required >
-    <input type="email" class="form-control" placeholder="email" id="su-email" required >
+        <option>Chittagong</option>
+        <option>Dhaka</option>
+        <option>Rajshahi</option>
+        <option>Khulna</option>
+        <option>Comilla</option>
 
-    <input type="text" class="form-control" placeholder="Your Full Name" id="su-name" required >
-    <input type="text" class="form-control" placeholder="father's Name" id="su-father" required >
-    <input type="text" class="form-control" placeholder="Mother's Name" id="su-mother" required >
-    
+      </select> </p>
+       <p><label for="su-upozilla">Name of Upozilla:</label> 
+        
+        <select class="btn btn-default" required id="su-upozilla">
 
-    <label for="su-DOB"> Date of Birth </label> 
-    <input class = 'form-control datepicker' type="date" id="su-DOB" min="2000-01-02" required>
-    
-    <label for="su-address">address</label> 
-    <input class = 'form-control' type="text" id="su-address">
-    <p><label for="su-district">Name of District:</label> 
-    
-    <select class="btn btn-default" required id="su-district">
+        <option>Chittagong</option>
+        <option>Dhaka</option>
+        <option>Rajshahi</option>
+        <option>Khulna</option>
+        <option>Comilla</option>
 
-    <option>Chittagong</option>
-    <option>Dhaka</option>
-    <option>Rajshahi</option>
-    <option>Khulna</option>
-    <option>Comilla</option>
+      </select>
+        </p>
+      <p> <label for="su-pourashava">Pourashava Name:</label> 
+        
+        <select class="btn btn-default" required id="su-pourashava">
 
-  </select> </p>
-   <p><label for="su-upozilla">Name of Upozilla:</label> 
-    
-    <select class="btn btn-default" required id="su-upozilla">
+        <option>Chittagong</option>
+        <option>Dhaka</option>
+        <option>Rajshahi</option>
+        <option>Khulna</option>
+        <option>Comilla</option>
 
-    <option>Chittagong</option>
-    <option>Dhaka</option>
-    <option>Rajshahi</option>
-    <option>Khulna</option>
-    <option>Comilla</option>
-
-  </select>
-    </p>
-  <p> <label for="su-pourashava">Pourashava Name:</label> 
-    
-    <select class="btn btn-default" required id="su-pourashava">
-
-    <option>Chittagong</option>
-    <option>Dhaka</option>
-    <option>Rajshahi</option>
-    <option>Khulna</option>
-    <option>Comilla</option>
-
-  </select> 
-  </p>
+      </select> 
+      </p>
 
 
-    <label for="su-citycorporation">City Corporation Name:</label> 
-    
-    <select class="btn btn-default" required id="su-citycorporation">
+        <label for="su-citycorporation">City Corporation Name:</label> 
+        
+        <select class="btn btn-default" required id="su-citycorporation">
 
-    <option>Chittagong</option>
-    <option>Dhaka</option>
-    <option>Rajshahi</option>
-    <option>Khulna</option>
-    <option>Comilla</option>
+        <option>Chittagong</option>
+        <option>Dhaka</option>
+        <option>Rajshahi</option>
+        <option>Khulna</option>
+        <option>Comilla</option>
 
-  </select>
-    <p> <label for="su-bloodgroup">Blood Group</label> 
-        <select class="btn btn-default" required id="su-bloodgroup">
+      </select>
+        <p> 
+            <label for="su-bloodgroup">Blood Group</label> 
+            <select class="btn btn-default" required id="su-bloodgroup">
 
-            <option>O+</option>
-            <option>O-</option>
-            <option>A+</option>
-            <option>A-</option>
-            <option>AB+</option>
-            <option>AB-</option>
-            <option>B+</option>
-            <option>B-</option>
+                <option>O+</option>
+                <option>O-</option>
+                <option>A+</option>
+                <option>A-</option>
+                <option>AB+</option>
+                <option>AB-</option>
+                <option>B+</option>
+                <option>B-</option>
 
-        </select>
-
-
-    </p>
-     <label for="su-contact">contact</label> 
-    <input class = 'form-control' type="text" id="su-contact">
-
-<br>
-
-    <button class="btn btn-lg btn-success btn-block" role="button" id="su-signup">Sign Up</button>
-
-
+            </select>
+        </p>
+        <label for="su-contact">contact</label> 
+        <input class = 'form-control' type="text" id="su-contact">
+    <br>
+        <button class="btn btn-lg btn-success btn-block" role="button" id="su-signup">Sign Up</button>
             <h3> Already have an account? </h3>
             <center>
-            <p><a class="btn btn-lg btn-primary btn-block animated flip" href="{{pathFor 'loginSignup'}}" role="button" id="su-login">Log in!</a></p>
-        </center>
-        
+                <p><a class="btn btn-lg btn-primary btn-block animated flip" href="{{pathFor 'loginSignup'}}" role="button" id="su-login">Log in!</a></p>
+            </center>
+            
 
  
 
-</form>
+        </form>
 
 
-{{/if}}
+    {{/if}}
 
 </template>
 
