@@ -2,23 +2,21 @@
 
 {{>timer}}
 
-
 {{#if isAdmin}}
-<form class="form-signin" role="form">
-    
-
-     <div class="dropdown">
-        <a href="#" class="dropdown-toggle btn btn-lg btn-block" data-toggle="dropdown">Candidate registered<span class="caret"></span></a>
-                  <form class="dropdown-menu" role="menu">
-                    <h3> Display all registered candidate for vote</h3>
-                  </form>
-                
-    </div>
-
-
-
-
-</form>
+    <form class="form-signin" role="form">
+      <div class="dropdown">
+          <a href="#" class="dropdown-toggle btn btn-lg btn-block" data-toggle="dropdown">Candidate registered<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <form class="form-signin" role="form">
+                    
+                <h3> Display all registered candidate for vote</h3>
+              </form>
+            </li>
+          </ul>
+                  
+      </div>
+    </form>
 {{else}}
 <form class="form-signin" role="form">
     
