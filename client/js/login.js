@@ -16,7 +16,7 @@ Template.signup.events({
         function (err){
             if (err){
                 console.log(err)
-                alert("An error occured!")
+                
                 flag=false;
 
 
