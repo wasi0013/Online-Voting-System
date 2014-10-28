@@ -14,6 +14,8 @@ if(Meteor.users.find().count()===0){
 
 }
 
+//check this portion in future!
+
 Meteor.publish("users",function(){
 
     return Meteor.users.find();
@@ -23,12 +25,27 @@ Meteor.publish("userinfo",function(){
     return userinfo.find();
 })
 
+Meteor.publish("quickvote",function(){
+
+    return quickvote.find();
+})
+
+
 userinfo.allow({
     insert: function (userId, doc) {
         return true
     },
     
 });
+
+quickvote.allow({
+    insert: function (userId, doc) {
+        return true
+    },
+    
+});
+
+//check it
 
 /*
 profile
