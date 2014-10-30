@@ -69,7 +69,7 @@ function countdown(yr,m,d,hr,min){
     }
 }
 
-Template.timer.rendered = function(evt,template) {
+Template.quickVote.rendered = function(evt,template) {
     if(!this._rendered) {
       this._rendered = true;
       //todo get data from database and render the timer
