@@ -69,9 +69,14 @@ function countdown(yr,m,d,hr,min){
     }
 }
 
-Template.timer.rendered = function() {
+Template.timer.rendered = function(evt,template) {
     if(!this._rendered) {
       this._rendered = true;
+      //todo get data from database and render the timer
+      votes=Session.get("vote");
+      
+
+
       countdown(year,month,day,hour,minute)
       
     }
