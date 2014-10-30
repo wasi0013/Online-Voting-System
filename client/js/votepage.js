@@ -1,5 +1,3 @@
-//js file for controlling votepage
-
 Template.quickVote.events({
     'click #c-register': function (evt, template) {
         // ...username holds voterid
