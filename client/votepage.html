@@ -154,10 +154,40 @@
     
 
      <div class="dropdown">
-        <a href="#" class="dropdown-toggle btn btn-lg btn-block" data-toggle="dropdown">Register as Candidate<span class="caret"></span></a>
+      <a href="#" class="dropdown-toggle btn btn-lg btn-block" data-toggle="dropdown">Create a team<span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li>
                       <form class="form-signin" role="form">
+                    <label for="c-username"> voterid 
+                     <input type="text" class="form-control" placeholder="Enter your voterid!" id="c-username" required > </label>
+                     <button class="btn btn-lg btn-success" id="c-register">Create team</button>
+                   </form>
+                    </li>
+    
+                  </ul>
+
+
+                
+    </div>
+        <a href="#" class="dropdown-toggle btn btn-lg btn-block" data-toggle="dropdown">Register as Candidate<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li>
+                       <p class="text-success"> Choose Seat:
+                        <select class="btn btn-default" required id="team-name">
+                            <option>Chittagong</option>
+                            <option>Dhaka</option>
+                            <option>Rajshahi</option>
+                            <option>Khulna</option>
+                            <option>Comilla</option>
+                        </select> 
+                        </p>
+
+
+
+                    </li>
+                    <li>
+                      <form class="form-signin" role="form">
+
                     <label for="c-username"> voterid 
                      <input type="text" class="form-control" placeholder="Enter your voterid!" id="c-username" required > </label>
                      <button class="btn btn-lg btn-success" id="c-register">Register</button>
@@ -175,6 +205,15 @@
                   <ul class="dropdown-menu" role="menu">
                     <li>
                       <form class="form-signin" role="form">
+                        <p class="text-success"> Choose Seat:
+                        <select class="btn btn-default" required id="seats">
+                            <option>Chittagong</option>
+                            <option>Dhaka</option>
+                            <option>Rajshahi</option>
+                            <option>Khulna</option>
+                            <option>Comilla</option>
+                        </select> 
+                        </p>
                         <p class="text-success"> Choose Candidate:
                         <select class="btn btn-default" required id="candidates">
                             <option>Chittagong</option>
