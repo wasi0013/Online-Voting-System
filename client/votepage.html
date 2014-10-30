@@ -97,7 +97,118 @@
 </template>
 
 <template name="nationalVote">
-<h1>This is National vote template</h1>
+
+{{>timer}}
+
+{{#if isAdmin}}
+    <form class="form-signin" role="form">
+      <div class="dropdown">
+          <a href="#" class="dropdown-toggle btn btn-lg btn-block" data-toggle="dropdown">Team registered<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <form class="form-signin" role="form">
+                    
+                <h3> Display all registered teams for National vote</h3>
+              </form>
+            </li>
+          </ul>
+                  
+      </div>
+      <div class="dropdown">
+          <a href="#" class="dropdown-toggle btn btn-lg btn-block" data-toggle="dropdown">Candidate registered<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <form class="form-signin" role="form">
+                    
+                <h3> Display all registered candidate for National vote</h3>
+              </form>
+            </li>
+          </ul>
+                  
+      </div>
+      
+
+
+
+      <div class="dropdown">
+          <a href="#" class="dropdown-toggle btn btn-lg btn-block" data-toggle="dropdown">Start National Vote<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <form class="form-signin" role="form">
+                <label for="end-date"> end date </label>
+                <input class = 'form-control datepicker' type="date" id="end-date" required>
+                <label for="end-time"> end time</label>
+                <input class = 'form-control' type="text" id="end-time" placeholder="HH:MM:SS" required>
+                <a href="#" class="btn btn-lg btn-block" id="start-vote"> start National vote!</a>
+           
+                
+              </form>
+            </li>
+          </ul>
+                  
+      </div>
+
+    </form>
+{{else}}
+<form class="form-signin" role="form">
+    
+
+     <div class="dropdown">
+        <a href="#" class="dropdown-toggle btn btn-lg btn-block" data-toggle="dropdown">Register as Candidate<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li>
+                      <form class="form-signin" role="form">
+                    <label for="c-username"> voterid 
+                     <input type="text" class="form-control" placeholder="Enter your voterid!" id="c-username" required > </label>
+                     <button class="btn btn-lg btn-success" id="c-register">Register</button>
+                   </form>
+                    </li>
+    
+                  </ul>
+
+
+                
+    </div>
+
+    <div class="dropdown">
+        <a href="#" class="dropdown-toggle btn btn-lg btn-block" data-toggle="dropdown"> Vote <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li>
+                      <form class="form-signin" role="form">
+                        <p class="text-success"> Choose Candidate:
+                        <select class="btn btn-default" required id="candidates">
+                            <option>Chittagong</option>
+                            <option>Dhaka</option>
+                            <option>Rajshahi</option>
+                            <option>Khulna</option>
+                            <option>Comilla</option>
+                        </select> 
+                        </p>
+                        <p>
+                        <center><button class="btn btn-lg btn-warning"> Vote!  <span class="glyphicon glyphicon-thumbs-up"> </span></button></center>
+                      </p>
+                      </form>
+                    </li>
+    
+                  </ul>
+
+                  
+                
+    </div>
+
+
+
+
+
+</form>
+
+
+{{/if}}
+
+
+
+
+
 
 </template>
 
