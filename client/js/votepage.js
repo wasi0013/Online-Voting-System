@@ -3,6 +3,7 @@
 Template.quickVote.events({
     'click #c-register': function (evt, template) {
         // ...username holds voterid
+        evt.preventDefault()
         usern = template.find("#c-username").value
         if (Meteor.user().username ==usern && usern != undefined && usern!="" && quickvote.find({username:usern})?(quickvote.find({username:usern}).count()==0):true){
 

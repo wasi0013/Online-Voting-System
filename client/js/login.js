@@ -3,6 +3,7 @@
 Template.signup.events({
 
     'click #su-signup': function (evt,template){
+        evt.preventDefault();
         var flag=true
         if(userinfo.find({username: template.find("#su-username").value}).count()>0){
         alert("The voterid is already registered!");
