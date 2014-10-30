@@ -9,6 +9,16 @@ Template.quickVote.helpers({ isAdmin: function (){
 
 }})
 
+Template.nationalVote.helpers({ isAdmin: function (){
+
+    return Meteor.user()? (
+        Meteor.user().username==="admin"?
+                true:false
+        )
+    :false;
+
+}})
+
 function logRenders () {
     _.each(Template, function (template, name) {
       var oldRender = template.rendered;
