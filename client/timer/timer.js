@@ -73,8 +73,7 @@ Template.timer.rendered = function(evt,template) {
     if(!this._rendered) {
       this._rendered = true;
       //todo get data from database and render the timer
-      votes=Session.get("vote");
-
+      
       
 
 
@@ -84,3 +83,15 @@ Template.timer.rendered = function(evt,template) {
 }
 
 
+Template.nationalVote.rendered = function(evt,template) {
+    if(!this._rendered) {
+      this._rendered = true;
+      //todo get data from database and render the timer
+      
+      
+
+
+      countdown(year,month,day,hour,minute)
+      
+    }
+}
