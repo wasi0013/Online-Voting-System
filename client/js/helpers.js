@@ -1,4 +1,3 @@
-
 Template.quickVote.helpers({ isAdmin: function (){
 
     return Meteor.user()? (
