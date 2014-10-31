@@ -1,4 +1,6 @@
-Template.quickVote.helpers({ isAdmin: function (){
+Template.quickVote.helpers({ 
+
+  isAdmin: function (){
 
     return Meteor.user()? (
         Meteor.user().username==="admin"?
@@ -6,7 +8,16 @@ Template.quickVote.helpers({ isAdmin: function (){
         )
     :false;
 
-}})
+    },
+
+  regcandidate: function(){
+
+    return quickvote.find({}, {
+      fields: {'votecount':false}
+      });
+  }
+
+})
 
 Template.nationalVote.helpers({ isAdmin: function (){
 

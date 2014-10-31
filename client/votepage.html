@@ -32,7 +32,15 @@
             <li>
               <form class="form-signin" role="form">
                     
-                <h3> Display all registered candidate for vote</h3>
+                <h3> Registered candidates</h3>
+                
+                <ul>
+
+                {{#each regcandidate}}
+                <li> {{username}} </li> 
+
+                {{/each}}
+                </ul>
               </form>
             </li>
           </ul>
@@ -85,11 +93,9 @@
                       <form class="form-signin" role="form">
                         <p class="text-success"> Choose Candidate:
                         <select class="btn btn-default" required id="candidates">
-                            <option>Chittagong</option>
-                            <option>Dhaka</option>
-                            <option>Rajshahi</option>
-                            <option>Khulna</option>
-                            <option>Comilla</option>
+                          {{#each regcandidate}}
+                            <option>{{username}}</option>
+                          {{/each}}
                         </select> 
                         </p>
                         <p>
