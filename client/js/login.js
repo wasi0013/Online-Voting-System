@@ -85,6 +85,7 @@ Template.logout.events({
     'click #lo-logout': function (evt, template){
         evt.preventDefault()
         Meteor.logout()
+        Router.go('/')
 
 
     }
