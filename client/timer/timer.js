@@ -47,7 +47,7 @@ function countdown(yr,m,d,hr,min){
         document.getElementById('seconds').style.display="none";
         
         
-        clearInterval(timer)
+        Neteor.clearInterval(timer)
         return;
     }
     else {
@@ -61,9 +61,10 @@ function countdown(yr,m,d,hr,min){
         }
         catch(err){
 
-            clearInterval(timer)
+            Meteor.clearInterval(timer)
+            return;
         }
-        timer=setInterval(function(){countdown(theyear,themonth,theday,thehour,theminute)},1000);
+        timer=Meteor.setInterval(function(){countdown(theyear,themonth,theday,thehour,theminute)},1000);
 
         
     }
