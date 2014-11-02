@@ -18,8 +18,9 @@ if(Meteor.users.find().count()===0){
 
 Meteor.publish("users",function(){
 
-    return Meteor.users.find();
+    return Meteor.users.find({},{fields: {username:true}});
 })
+
 Meteor.publish("userinfo",function(){
 
     return userinfo.find();
@@ -28,6 +29,22 @@ Meteor.publish("userinfo",function(){
 Meteor.publish("quickvote",function(){
 
     return quickvote.find();
+})
+
+Meteor.publish("nationalvote",function(){
+
+    return nationalvote.find();
+})
+
+
+Meteor.publish("nationalvoter",function(){
+
+    return nationalvoter.find();
+})
+
+Meteor.publish("quickvoter",function(){
+
+    return quickvoter.find();
 })
 
 
@@ -44,6 +61,25 @@ quickvote.allow({
     },
     
 });
+quickvoter.allow({
+    insert: function (userId, doc) {
+        return true
+    },
+    
+});
+nationalvoter.allow({
+    insert: function (userId, doc) {
+        return true
+    },
+    
+});
+nationalvote.allow({
+    insert: function (userId, doc) {
+        return true
+    },
+    
+});
+
 
 //check it
 
