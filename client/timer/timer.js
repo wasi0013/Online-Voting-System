@@ -58,6 +58,7 @@ function countdown(yr,m,d,hr,min){
         document.getElementById('dhour').innerHTML=dhour;
         document.getElementById('dmin').innerHTML=dmin;
         document.getElementById('dsec').innerHTML=dsec;
+        clearInterval(timer)
         }
         catch(err){
             console.log("timer clear"+err)
