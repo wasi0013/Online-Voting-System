@@ -47,24 +47,25 @@ function countdown(yr,m,d,hr,min){
         document.getElementById('seconds').style.display="none";
         
         
-        Neteor.clearInterval(timer)
+        Meteor.clearInterval(timer)
         return;
     }
     else {
         try{
         document.getElementById('count2').style.display="none";
-        
+        console.log("executing")
         document.getElementById('dday').innerHTML=dday;
         document.getElementById('dhour').innerHTML=dhour;
         document.getElementById('dmin').innerHTML=dmin;
         document.getElementById('dsec').innerHTML=dsec;
         }
         catch(err){
-
-            Meteor.clearInterval(timer)
+            console.log("timer clear"+err)
+            clearInterval(timer)
             return;
         }
-        timer=Meteor.setInterval(function(){countdown(theyear,themonth,theday,thehour,theminute)},1000);
+        timer=setInterval(function(){countdown(theyear,themonth,theday,thehour,theminute)},1000);
+        return;
 
         
     }
@@ -77,7 +78,7 @@ Template.quickVote.rendered = function(evt,template) {
       
       
 
-
+      console.log("rendering ")
       countdown(year,month,day,hour,minute)
       
     }

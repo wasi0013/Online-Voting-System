@@ -208,9 +208,12 @@
                   <ul class="dropdown-menu" role="menu">
                     <li>
                       <form class="form-signin" role="form">
-                    <label for="c-username"> voterid 
+                         <label for="c-teamname"> Team: 
+                     <input type="text" class="form-control" placeholder="Choose Team Name" id="c-teamname" required > </label>
+                     <label for="c-username"> voterid 
                      <input type="text" class="form-control" placeholder="Enter your voterid!" id="c-username" required > </label>
-                     <button class="btn btn-lg btn-success" id="c-register">Create team</button>
+                    <button class="btn btn-lg btn-success" id="c-register">Create team</button>
+                    
                    </form>
                     </li>
     
@@ -223,7 +226,7 @@
         <a href="#" class="dropdown-toggle btn btn-lg btn-block" data-toggle="dropdown">Register as Candidate<span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li>
-                       <p class="text-success"> Choose Seat:
+                       <p class="text-success"> Choose Team:
                         <select class="btn btn-default" required id="team-name">
                             <option>Seat 1</option>
                             <option>Seat 2</option>
@@ -232,11 +235,19 @@
                             <option>Seat 5</option>
                         </select> 
                         </p>
-
-
-
-
                     </li>
+                    <li>
+                       <p class="text-success"> Choose Seat:
+                        <select class="btn btn-default" required id="seat-name">
+                            <option>Seat 1</option>
+                            <option>Seat 2</option>
+                            <option>Seat 3</option>
+                            <option>Seat 4</option>
+                            <option>Seat 5</option>
+                        </select> 
+                        </p>
+                    </li>
+
 
                     <li>
                       <form class="form-signin" role="form">
@@ -256,7 +267,7 @@
                   <ul class="dropdown-menu" role="menu">
                     <li>
                       <form class="form-signin" role="form">
-                        <p class="text-success"> Choose Seat:
+                        <center><p class="text-success"> Choose Seat:
                         <select class="btn btn-default" required id="seats">
                             <option>Chittagong</option>
                             <option>Dhaka</option>
@@ -264,8 +275,8 @@
                             <option>Khulna</option>
                             <option>Comilla</option>
                         </select> 
-                        </p>
-                        <p class="text-success"> Choose Candidate:
+                        </p></center>
+                        <center><p class="text-success"> Choose Candidate:
                         <select class="btn btn-default" required id="candidates">
                             <option>Chittagong</option>
                             <option>Dhaka</option>
@@ -273,7 +284,7 @@
                             <option>Khulna</option>
                             <option>Comilla</option>
                         </select> 
-                        </p>
+                        </p></center>
                         <p>
                         <center><button class="btn btn-lg btn-warning"> Vote!  <span class="glyphicon glyphicon-thumbs-up"> </span></button></center>
                       </p>

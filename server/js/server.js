@@ -11,6 +11,18 @@ if(Meteor.users.find().count()===0){
         username: "admin",
         email: "admin@admin.com",
         });
+     admin.insert({
+        "votename":"quickvote",
+        "startdate": new Date(),
+        "enddate":["2002","01","01","00","00"],
+        "status":"off"
+    })
+     admin.insert({
+        "votename":"nationalvote",
+        "startdate": new Date(),
+        "enddate":["2002","01","01","00","00"],
+        "status":"off"
+    })
 
 }
 
@@ -47,11 +59,22 @@ Meteor.publish("quickvoter",function(){
     return quickvoter.find();
 })
 
+Meteor.publish("admin",function(){
+
+    return admin.find({},{fields: {votename:true,startdate:true,enddate:true,status:true}});
+})
 
 userinfo.allow({
     insert: function (userId, doc) {
         return true
     },
+    
+});
+admin.allow({
+    update: function (userId, doc) {
+        return true
+    },
+
     
 });
 
