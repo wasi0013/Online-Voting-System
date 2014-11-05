@@ -46,6 +46,7 @@
           </ul>
                   
       </div>
+      {{#if quickstatus}}
       <div class="dropdown">
           <a href="#" class="dropdown-toggle btn btn-lg btn-block" data-toggle="dropdown">Start Vote<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -63,6 +64,10 @@
           </ul>
                   
       </div>
+      {{else}}
+      <a href="#" class="btn btn-lg btn-danger btn-block" id="reset-vote" > Abort running vote</a>
+
+      {{/if}}
 
     </form>
 {{else}}

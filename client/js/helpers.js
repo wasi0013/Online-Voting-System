@@ -2,6 +2,7 @@ Template.quickVote.helpers({
 
   isAdmin: function (){
 
+
     return Meteor.user()? (
         Meteor.user().username==="admin"?
                 true:false
@@ -15,11 +16,21 @@ Template.quickVote.helpers({
     return quickvote.find({}, {
       fields: {'votecount':false}
       });
+  },
+  quickstatus: function(){
+    
+    return admin.findOne({"votename":"quickvote"})["status"]=="off";
   }
+
+
+
+  
 
 })
 
-Template.nationalVote.helpers({ isAdmin: function (){
+Template.nationalVote.helpers({ 
+
+  isAdmin: function (){
 
     return Meteor.user()? (
         Meteor.user().username==="admin"?
@@ -27,7 +38,14 @@ Template.nationalVote.helpers({ isAdmin: function (){
         )
     :false;
 
-}})
+},
+
+ nationalstatus: function(){
+    
+    return admin.findOne({"votename":"nationalvote"})["status"]=="off";
+  }
+
+})
 
 function logRenders () {
     _.each(Template, function (template, name) {

@@ -23,12 +23,39 @@ Template.quickVote.events({
         enddate=template.find('#end-date').value.split('-')
 
         enddate=enddate.concat(template.find("#end-time").value.split(':'))
-        admins= admin.find({votename:"quickvote"})
-
+        admins= admin.find({votename:"quickvote"}).fetch()[0]
         admin.update({"_id":admins._id},{$set:{"votename":"quickvote","startdate": new Date(),"enddate":enddate,"status":"on"}})
-        console.log("quick vote started")
+        //console.log(admin.find({votename:"quickvote"}).fetch()[0])
+        //alert(admins._id["_str"])
+        
+        
 
-    } 
+
+        console.log("quick vote started")
+        location.reload()
+
+
+    }, 
+    'click #reset-vote': function (evt,template){
+        bootbox.confirm("Are you sure want to reset Quickvote?",function(result) {
+            if(result){
+        evt.preventDefault()
+        admins= admin.find({votename:"quickvote"}).fetch()[0]
+        admin.update({"_id":admins._id},{$set:{"votename":"quickvote","startdate": new Date(),"enddate":["2013","12","13","13","13"],"status":"off"}})
+        //console.log(admin.find({votename:"quickvote"}).fetch()[0])
+        //alert(admins._id["_str"])
+        
+        quickvote.remove({})
+        quickvoter.remove({})
+
+        console.log("quick vote aborted")
+        alert("Quick Vote Aborted")
+        location.reload()
+        }
+
+
+
+    })}
 
 
 

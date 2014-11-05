@@ -61,7 +61,7 @@ Meteor.publish("quickvoter",function(){
 
 Meteor.publish("admin",function(){
 
-    return admin.find({},{fields: {votename:true,startdate:true,enddate:true,status:true}});
+    return admin.find();
 })
 
 userinfo.allow({
@@ -82,24 +82,38 @@ quickvote.allow({
     insert: function (userId, doc) {
         return true
     },
+    remove: function (userId, doc) {
+        return true
+    }
+
     
 });
 quickvoter.allow({
     insert: function (userId, doc) {
         return true
     },
+    remove: function (userId, doc) {
+        return true
+    }
     
 });
 nationalvoter.allow({
     insert: function (userId, doc) {
         return true
     },
+    remove: function(userId,doc){
+        return true
+    }
+
     
 });
 nationalvote.allow({
     insert: function (userId, doc) {
         return true
     },
+     remove: function(userId,doc){
+        return true
+    }
     
 });
 
