@@ -5,7 +5,9 @@ Template.quickVote.events({
         usern = template.find("#c-username").value
         if ((Meteor.user()!=null?(Meteor.user().username ==usern):false) && usern !=undefined && usern!="" && (quickvote.find()!=null?(quickvote.find({username:usern}).count()==0):false)){
 
-            quickvote.insert({username:usern, votecount:0 });
+            //quickvote.insert({username:usern, votecount:0 });
+            Meteor.call("quickvote_insert",{username:usern, votecount:0 });
+            
             alert("You are now registered as a candidate!");
             console.log("You are now registered as a candidate!")
 
@@ -45,8 +47,8 @@ Template.quickVote.events({
         //console.log(admin.find({votename:"quickvote"}).fetch()[0])
         //alert(admins._id["_str"])
         
-        quickvote.remove({})
-        quickvoter.remove({})
+        Meteor.call("quickvote_remove",{})
+        Meteor.call("quickvoter_remove",{})
 
         console.log("quick vote aborted")
         alert("Quick Vote Aborted")
