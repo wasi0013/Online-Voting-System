@@ -26,7 +26,9 @@ Template.quickVote.events({
 
         enddate=enddate.concat(template.find("#end-time").value.split(':'))
         admins= admin.find({votename:"quickvote"}).fetch()[0]
-        admin.update({"_id":admins._id},{$set:{"votename":"quickvote","startdate": new Date(),"enddate":enddate,"status":"on"}})
+        //admin.update({"_id":admins._id},{$set:{"votename":"quickvote","startdate": new Date(),"enddate":enddate,"status":"on"}})
+        Meteor.call("admin_update",{"_id":admins._id},{$set:{"votename":"quickvote","startdate": new Date(),"enddate":enddate,"status":"on"}})
+
         //console.log(admin.find({votename:"quickvote"}).fetch()[0])
         //alert(admins._id["_str"])
         

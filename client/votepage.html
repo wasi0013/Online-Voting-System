@@ -55,7 +55,7 @@
                 <label for="end-date"> end date </label>
                 <input class = 'form-control datepicker' type="date" id="end-date" required>
                 <label for="end-time"> end time</label>
-                <input class = 'form-control' type="text" id="end-time" placeholder="HH:MM:SS" required>
+                <input class = 'form-control' type="text" id="end-time" placeholder="HH:MM" required>
                 <a href="#" class="btn btn-lg btn-block" id="start-vote"> start vote!</a>
            
                 
@@ -97,7 +97,7 @@
                     <li>
                       <form class="form-signin" role="form">
                         <p class="text-success"> Choose Candidate:
-                        <select class="btn btn-default" required id="candidates">
+                        <select class="btn btn-default"  id="candidates" required>
                           {{#each regcandidate}}
                             <option>{{username}}</option>
                           {{/each}}
