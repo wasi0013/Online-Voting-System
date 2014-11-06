@@ -15,6 +15,13 @@ Meteor.methods({
     nationalvote_insert: function(data){
         return nationalvote.insert(data)
     },
+    nationalvoter_insert: function(data){
+        return nationalvoter.insert(data)
+    },
+    history_insert: function(data){
+
+        return history.insert(data)
+    },
     userinfo_insert: function(data){
         return userinfo.insert(data)
     },
@@ -40,7 +47,11 @@ Meteor.methods({
     },
     nationalvoter_remove: function(data){
         return nationalvoter.remove(data);
-    }
+    },
+
+    admin_update: function(query,data){
+        return admin.update(query,data)
+    },
 
 
 })
