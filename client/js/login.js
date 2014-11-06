@@ -27,7 +27,24 @@ Template.signup.events({
 
      if (flag){       
                 alert("Signup successful")
-                userinfo.insert({
+                // userinfo.insert({
+                //     username: template.find("#su-username").value,
+                //     email: template.find("#su-email").value,
+                //     profile:{
+                //         name: template.find("#su-name").value,
+                //         father:template.find("#su-father").value,
+                //         mother:template.find("#su-mother").value,
+                //         address:template.find("#su-address").value,
+                //         DOB: template.find("#su-DOB").value,
+                //         upozilla:template.find("#su-upozilla").value,
+                //         pourashava:template.find("#su-pourashava").value,
+                //         citycorporation:template.find("#su-citycorporation").value,
+                //         district: template.find("#su-district").value,
+                //         blood: template.find("#su-bloodgroup").value,
+                //         contact:template.find("#su-contact").value,
+                //         },
+                //     })
+                Meteor.call("userinfo_insert",{
                     username: template.find("#su-username").value,
                     email: template.find("#su-email").value,
                     profile:{
@@ -44,6 +61,7 @@ Template.signup.events({
                         contact:template.find("#su-contact").value,
                         },
                     })
+
                  
         
             }
