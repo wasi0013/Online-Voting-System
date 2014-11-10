@@ -104,7 +104,7 @@
                         </select> 
                         </p>
                         <p>
-                        <center><button class="btn btn-lg btn-warning"> Vote!  <span class="glyphicon glyphicon-thumbs-up"> </span></button></center>
+                        <center><button class="btn btn-lg btn-warning" id="vote"> Vote!  <span class="glyphicon glyphicon-thumbs-up"> </span></button></center>
                       </p>
                       </form>
                     </li>
@@ -158,12 +158,12 @@
 {{#if isAdmin}}
     <form class="form-signin" role="form">
       <div class="dropdown">
-          <a href="#" class="dropdown-toggle btn btn-lg btn-block" data-toggle="dropdown">Team registered<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle btn btn-lg btn-block" data-toggle="dropdown">Party registered<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li>
               <form class="form-signin" role="form">
                     
-                <h3> Display all registered teams for National vote</h3>
+                <h3> Display all registered Parties for National vote</h3>
               </form>
             </li>
           </ul>
@@ -209,15 +209,15 @@
     
 
      <div class="dropdown">
-      <a href="#" class="dropdown-toggle btn btn-lg btn-block" data-toggle="dropdown">Create a team<span class="caret"></span></a>
+      <a href="#" class="dropdown-toggle btn btn-lg btn-block" data-toggle="dropdown">Create a Party<span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li>
                       <form class="form-signin" role="form">
-                         <label for="c-teamname"> Team: 
-                     <input type="text" class="form-control" placeholder="Choose Team Name" id="c-teamname" required > </label>
+                         <label for="c-teamname"> Party: 
+                     <input type="text" class="form-control" placeholder="Choose Party Name" id="c-teamname" required > </label>
                      <label for="c-username"> voterid 
                      <input type="text" class="form-control" placeholder="Enter your voterid!" id="c-username" required > </label>
-                    <button class="btn btn-lg btn-success" id="c-register">Create team</button>
+                    <button class="btn btn-lg btn-success" id="c-register">Create Party</button>
                     
                    </form>
                     </li>
@@ -231,13 +231,13 @@
         <a href="#" class="dropdown-toggle btn btn-lg btn-block" data-toggle="dropdown">Register as Candidate<span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li>
-                       <p class="text-success"> Choose Team:
+                       <p class="text-success"> Choose Party:
                         <select class="btn btn-default" required id="team-name">
-                            <option>Seat 1</option>
-                            <option>Seat 2</option>
-                            <option>Seat 3</option>
-                            <option>Seat 4</option>
-                            <option>Seat 5</option>
+                            <option>Party 1</option>
+                            <option>Party 2</option>
+                            <option>Party 3</option>
+                            <option>Party 4</option>
+                            <option>Party 5</option>
                         </select> 
                         </p>
                     </li>

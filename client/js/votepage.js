@@ -60,7 +60,34 @@ Template.quickVote.events({
 
 
 
-    })}
+    })},
+    'click #vote': function(evt,template){
+        evt.preventDefault()
+        admins= admin.find({votename:"quickvote"}).fetch()[0]
+
+        if(admins["status"]=="on"){
+            //todo vote increment
+            if(Meteor.user()){
+                //voterid of who is voting
+                voterid=Meteor.user().username
+                //voterid of whome he/she voted for
+                candidates=template.find("#candidates").value
+                
+
+
+
+
+
+            }
+
+        }
+        else{
+            
+            bootbox.alert("No vote is running")
+        }
+
+
+    }
 
 
 

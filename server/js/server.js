@@ -11,7 +11,11 @@ if(Meteor.users.find().count()===0){
         username: "admin",
         email: "admin@admin.com",
         });
-     admin.insert({
+     
+
+}
+if (admin.find().count()===0){
+admin.insert({
         "votename":"quickvote",
         "startdate": new Date(),
         "enddate":["2002","01","01","00","00"],
@@ -24,6 +28,7 @@ if(Meteor.users.find().count()===0){
         "status":"off"
     })
 
+    
 }
 
 //check this portion in future!
@@ -64,6 +69,7 @@ Meteor.publish("admin",function(){
     return admin.find();
 })
 
+//will be commented after testing -debugging finishes
 userinfo.allow({
     insert: function (userId, doc) {
         return true

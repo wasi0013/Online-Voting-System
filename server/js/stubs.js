@@ -48,9 +48,16 @@ Meteor.methods({
     nationalvoter_remove: function(data){
         return nationalvoter.remove(data);
     },
-
+    //updates of all collections
     admin_update: function(query,data){
         return admin.update(query,data)
+    },
+    quickvote_update:function(query,data){
+        return quickvote.update(query,data)
+    },
+    nationalvote_update:function(query,data){
+
+        return nationalvote.update(query,data)
     },
 
 
