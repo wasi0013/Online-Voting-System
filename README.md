@@ -11,7 +11,7 @@ Features:
   - [x] User registration and signup
   - [x] User information page
   - [x] Stable Vote Clock for all votes 
-  - [ ] Quick Vote 
+  - [x] Quick Vote 
   - [ ] Stats 
   - [ ] Team registration and management for National Election
   - [ ] Seats Planning 
