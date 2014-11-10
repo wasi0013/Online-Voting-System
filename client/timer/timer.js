@@ -47,7 +47,8 @@ function countdown(yr,m,d,hr,min){
         document.getElementById('minutes').style.display="none";
         document.getElementById('seconds').style.display="none";
         admins= admin.find({votename:vote}).fetch()[0]
-        admin.update({"_id":admins._id["_str"]},{$set:{"status":"off"}})
+        //admin.update({"_id":admins._id["_str"]},{$set:{"status":"off"}})
+        Meteor.call('admin_update',{"_id":admins._id},{$set:{"status":"off"}})
         Meteor.clearInterval(timer)
         return;
     }
