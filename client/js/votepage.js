@@ -67,17 +67,26 @@ Template.quickVote.events({
 
         if(admins["status"]=="on"){
             //todo vote increment
-            if(Meteor.user()){
+            if(Meteor.user()!=null ){
+                console.log("quick voting")
                 //voterid of who is voting
                 voterid=Meteor.user().username
+                
+                if(quickvoter.find({username:voterid}).count()==0){
                 //voterid of whome he/she voted for
                 candidates=template.find("#candidates").value
-                
+                //increment votecount of the candidate
+                Meteor.call("quickvote_update",{"username":candidates},{$inc:{votecount:1}})
+                //add the user in voted list
+                Meteor.call("quickvoter_insert",{"username":voterid})
+                console.log("succeed")
+                }
+                else{
+                    bootbox.alert("You already Voted once!")
+                }
+            }else{
 
-
-
-
-
+                bootbox.alert("Not logged in")
             }
 
         }

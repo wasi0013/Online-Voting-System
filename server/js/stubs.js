@@ -32,7 +32,7 @@ Meteor.methods({
         return quickvote.insert(data)
     },
     quickvoter_insert: function(data){
-        return quickvote.insert(data)
+        return quickvoter.insert(data)
     },
 
     //remove items from collections
