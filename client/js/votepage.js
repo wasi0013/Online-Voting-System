@@ -101,3 +101,61 @@ Template.quickVote.events({
 
 
 });
+
+Template.nationalVote.events({
+    'click #start-vote': function (evt,template){
+        //not tested
+        evt.preventDefault()
+        enddate=template.find('#end-date').value.split('-')
+
+        enddate=enddate.concat(template.find("#end-time").value.split(':'))
+        admins= admin.find({votename:"nationalvote"}).fetch()[0]
+        //admin.update({"_id":admins._id},{$set:{"votename":"nationalvote","startdate": new Date(),"enddate":enddate,"status":"on"}})
+        Meteor.call("admin_update",{"_id":admins._id},{$set:{"votename":"nationalvote","startdate": new Date(),"enddate":enddate,"status":"on"}})
+
+        //console.log(admin.find({votename:"quickvote"}).fetch()[0])
+        //alert(admins._id["_str"])
+    
+        console.log("National vote started")
+        location.reload()
+
+
+    },
+     'click #reset-vote': function (evt,template){
+        //not tested yet
+        bootbox.confirm("Are you sure want to reset National Vote?",function(result) {
+            if(result){
+        evt.preventDefault()
+        admins= admin.find({votename:"nationalvote"}).fetch()[0]
+        Meteor.call("admin_update",{"_id":admins._id},{$set:{"votename":"nationalvote","startdate": new Date(),"enddate":["2013","12","13","13","13"],"status":"off"}})
+        //admin.update({"_id":admins._id},{$set:{"votename":"nationalvote","startdate": new Date(),"enddate":["2013","12","13","13","13"],"status":"off"}})
+        //console.log(admin.find({votename:"nationalvote"}).fetch()[0])
+        //alert(admins._id["_str"])
+        Meteor.call("nationalvote_remove",{})
+        Meteor.call("nationalvoter_remove",{})
+        Meteor.call("party_remove",{})
+
+        console.log("National vote aborted")
+        alert("National Vote Aborted")
+        location.reload()
+        }
+        })
+    },
+
+        'click #c-register': function (evt,template){
+
+
+
+        },
+
+        'click #ok' : function (evt,template){
+            bootbox.alert()
+
+        },
+        
+
+
+
+
+
+})

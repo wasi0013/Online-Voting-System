@@ -22,6 +22,8 @@ Template.stats.rendered = function(evt,template) {
   ]
 }
 
+
+
  
 $( document ).ready(function() {
     //Get the context of the canvas element we want to select
@@ -32,3 +34,38 @@ $( document ).ready(function() {
       
     }
 }
+
+Template.quickstats.rendered = function(evt,template) {
+    if(!this._rendered) {
+      this._rendered = true;
+      quickvoterid=[]
+      votecounter=[]
+
+      quickvote.find({},{username:true,_id:false,}).forEach(function(data){
+        quickvoterid.push(data.username)
+        votecounter.push(data.votecount)
+      })
+      var data = {
+  labels : quickvoterid,
+  datasets : [
+    { 
+            label:"Vote Count",
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(151,187,205,1)",
+            data : votecounter
+    },
+  
+  ]
+
+}
+$( document ).ready(function() {
+    //Get the context of the canvas element we want to select
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var myNewChart = new Chart(ctx).Line(data,{responsive:true,scaleShowGridLines : true,});
+  });
+     
+}}      

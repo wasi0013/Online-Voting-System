@@ -163,10 +163,26 @@
             <li>
               <form class="form-signin" role="form">
                     
-                <h3> Display all registered Parties for National vote</h3>
+                <table class="table table-striped">
+                <thead>
+                  <tr>
+                  <th>Party Leader</th>
+                  <th>Party Name</th>
+                  </tr> 
+                </thead>
+                <tbody>
+                
+                {{#each party}}
+                <tr> <td>{{username}}</td> <td>{{partyname}}</td></tr> 
+
+                {{/each}}
+              </tbody>
+              </table>
               </form>
+              
             </li>
           </ul>
+
                   
       </div>
       <div class="dropdown">
@@ -176,6 +192,29 @@
               <form class="form-signin" role="form">
                     
                 <h3> Display all registered candidate for National vote</h3>
+                <ul>
+
+                <table class="table table-striped">
+                <thead>
+                  <tr>
+                  <th>Candidate</th>
+                  <th>Party Name</th>
+                  <th>Seat </th>
+                  </tr> 
+                </thead>
+                <tbody>
+                
+                {{#each seat}}
+                <tr> <td>{{username}}</td> <td>{{partyname}}</td><td>{{seatname}}</td></tr> 
+
+                {{/each}}
+              </tbody>
+              </table>
+
+                
+                </ul>
+
+
               </form>
             </li>
           </ul>
@@ -184,17 +223,17 @@
       
 
 
-
+      {{#if nationalstatus}}
       <div class="dropdown">
           <a href="#" class="dropdown-toggle btn btn-lg btn-block" data-toggle="dropdown">Start National Vote<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li>
               <form class="form-signin" role="form">
-                <label for="end-date"> end date </label>
+                <label for="end-date">end date</label>
                 <input class = 'form-control datepicker' type="date" id="end-date" required>
-                <label for="end-time"> end time</label>
-                <input class = 'form-control' type="text" id="end-time" placeholder="HH:MM:SS" required>
-                <a href="#" class="btn btn-lg btn-block" id="start-vote"> start National vote!</a>
+                <label for="end-time">end time</label>
+                <input class = 'form-control' type="text" id="end-time" placeholder="HH:MM" required>
+                <a href="#" class="btn btn-lg btn-block" id="start-vote">Start National vote!</a>
            
                 
               </form>
@@ -202,6 +241,10 @@
           </ul>
                   
       </div>
+      {{else}}
+      <a href="#" class="btn btn-lg btn-danger btn-block" id="reset-vote" > Abort running vote</a>
+
+      {{/if}}
 
     </form>
 {{else}}
@@ -233,22 +276,18 @@
                     <li>
                        <p class="text-success"> Choose Party:
                         <select class="btn btn-default" required id="team-name">
-                            <option>Party 1</option>
-                            <option>Party 2</option>
-                            <option>Party 3</option>
-                            <option>Party 4</option>
-                            <option>Party 5</option>
+                          {{#each party}}
+                            <option>{{partyname}}</option>
+                          {{/each}}
                         </select> 
                         </p>
                     </li>
                     <li>
                        <p class="text-success"> Choose Seat:
                         <select class="btn btn-default" required id="seat-name">
-                            <option>Seat 1</option>
-                            <option>Seat 2</option>
-                            <option>Seat 3</option>
-                            <option>Seat 4</option>
-                            <option>Seat 5</option>
+                          {{#each seat}}
+                            <option>{{seatname}}</option>
+                          {{/each}}
                         </select> 
                         </p>
                     </li>
@@ -272,33 +311,26 @@
                   <ul class="dropdown-menu" role="menu">
                     <li>
                       <form class="form-signin" role="form">
-                        <center><p class="text-success"> Choose Seat:
+                        <center><p class="text-success">Choose Seat:
                         <select class="btn btn-default" required id="seats">
-                            <option>Chittagong</option>
-                            <option>Dhaka</option>
-                            <option>Rajshahi</option>
-                            <option>Khulna</option>
-                            <option>Comilla</option>
+                          {{#each seat}}
+                            <option>{{seatname}}</option>
+                          {{/each}}
+                            <option>Seat 2</option>
+                            <option>Seat 3</option>
+                            <option>Seat 4</option>
+                            <option>Seat 5</option>
                         </select> 
                         </p></center>
-                        <center><p class="text-success"> Choose Candidate:
-                        <select class="btn btn-default" required id="candidates">
-                            <option>Chittagong</option>
-                            <option>Dhaka</option>
-                            <option>Rajshahi</option>
-                            <option>Khulna</option>
-                            <option>Comilla</option>
-                        </select> 
-                        </p></center>
-                        <p>
-                        <center><button class="btn btn-lg btn-warning"> Vote!  <span class="glyphicon glyphicon-thumbs-up"> </span></button></center>
+                       <p>
+                        <center><button class="btn btn-lg btn-success" id="ok">ok  <span class="glyphicon glyphicon-thumbs-up"> </span></button></center>
                       </p>
                       </form>
                     </li>
     
                   </ul>
 
-                  
+                 
                 
     </div>
 

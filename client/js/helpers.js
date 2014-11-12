@@ -43,9 +43,20 @@ Template.nationalVote.helpers({
  nationalstatus: function(){
     
     return admin.findOne({"votename":"nationalvote"})["status"]=="off";
-  }
+  },
+  party: function(){
 
-})
+    return party.find({},{fields: {username:true,partyname:true}});
+  },
+  seat: function(){
+
+    return seat.find() 
+  }
+  
+
+}
+
+)
 
 function logRenders () {
     _.each(Template, function (template, name) {

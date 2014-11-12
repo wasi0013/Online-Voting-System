@@ -9,9 +9,13 @@
 
 // quickvote =  new Meteor.Collection('quickvote')
 // quickvoter = new Meteor.Collection ('quickvoter')
+// party = new Meteor.Collection('party')
 
 Meteor.methods({
     //inserts of all collection
+    party_insert: function(data){
+        return party.insert(data)
+    },
     nationalvote_insert: function(data){
         return nationalvote.insert(data)
     },
@@ -36,6 +40,9 @@ Meteor.methods({
     },
 
     //remove items from collections
+    party_remove: function(data){
+        return party.remove(data)
+    },
     quickvote_remove: function(data){
         return quickvote.remove(data);
     },
@@ -49,6 +56,7 @@ Meteor.methods({
         return nationalvoter.remove(data);
     },
     //updates of all collections
+
     admin_update: function(query,data){
         return admin.update(query,data)
     },
@@ -56,7 +64,6 @@ Meteor.methods({
         return quickvote.update(query,data)
     },
     nationalvote_update:function(query,data){
-
         return nationalvote.update(query,data)
     },
 
