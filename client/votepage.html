@@ -204,7 +204,7 @@
                 </thead>
                 <tbody>
                 
-                {{#each seat}}
+                {{#each nationalvote}}
                 <tr> <td>{{username}}</td> <td>{{partyname}}</td><td>{{seatname}}</td></tr> 
 
                 {{/each}}
@@ -260,7 +260,7 @@
                      <input type="text" class="form-control" placeholder="Choose Party Name" id="c-teamname" required > </label>
                      <label for="c-username"> voterid 
                      <input type="text" class="form-control" placeholder="Enter your voterid!" id="c-username" required > </label>
-                    <button class="btn btn-lg btn-success" id="c-register">Create Party</button>
+                    <button class="btn btn-lg btn-success" id="party-register">Create Party</button>
                     
                    </form>
                     </li>
@@ -285,9 +285,14 @@
                     <li>
                        <p class="text-success"> Choose Seat:
                         <select class="btn btn-default" required id="seat-name">
+                          
+                          
                           {{#each seat}}
-                            <option>{{seatname}}</option>
+                            {{#each seats}}
+                            <option>{{this}}</option>
                           {{/each}}
+                          {{/each}}
+                          
                         </select> 
                         </p>
                     </li>
@@ -298,7 +303,7 @@
 
                     <label for="c-username"> voterid 
                      <input type="text" class="form-control" placeholder="Enter your voterid!" id="c-username" required > </label>
-                     <button class="btn btn-lg btn-success" id="c-register">Register</button>
+                     <button class="btn btn-lg btn-success" id="candidate-register">Register</button>
                    </form>
                     </li>
     
@@ -313,13 +318,12 @@
                       <form class="form-signin" role="form">
                         <center><p class="text-success">Choose Seat:
                         <select class="btn btn-default" required id="seats">
-                          {{#each seat}}
-                            <option>{{seatname}}</option>
+                           {{#each seat}}
+                            {{#each seats}}
+                            <option>{{this}}</option>
                           {{/each}}
-                            <option>Seat 2</option>
-                            <option>Seat 3</option>
-                            <option>Seat 4</option>
-                            <option>Seat 5</option>
+                          {{/each}}
+                            
                         </select> 
                         </p></center>
                        <p>

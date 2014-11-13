@@ -27,6 +27,11 @@ admin.insert({
         "enddate":["2002","01","01","00","00"],
         "status":"off"
     })
+admin.insert({
+    "data":"seat",
+    "seats":["seat 1","seat 2","seat 3","seat 4","seat 5","seat 6","seat 7"]
+})
+
 
     
 }
@@ -67,6 +72,9 @@ Meteor.publish("quickvoter",function(){
 Meteor.publish("admin",function(){
 
     return admin.find();
+})
+Meteor.publish("party",function(){
+    return party.find();
 })
 
 //will be commented after testing -debugging finishes

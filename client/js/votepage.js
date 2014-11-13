@@ -142,7 +142,27 @@ Template.nationalVote.events({
         })
     },
 
-        'click #c-register': function (evt,template){
+        'click #candidate-register': function (evt,template){
+
+            partyname=template.find("#team-name").value
+            seatname=template.find("#seat-name").value
+            voterid=template.find("#c-username").value
+            console.log("Registering candidate")
+            Meteor.call("nationalvote_insert",{"username":voterid,"seatname":seatname,"partyname":partyname,"votecount":0})
+            console.log("success")
+
+
+
+
+        },
+        'click #party-register': function (evt,template){
+
+            partyname=template.find("#c-teamname").value
+            voterid=template.find("#c-username").value
+            console.log("Registering party")
+            Meteor.call("party_insert",{"username":voterid,"partyname":partyname,"votecount":0})
+            console.log("success")
+
 
 
 

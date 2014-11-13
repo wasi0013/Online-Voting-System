@@ -50,7 +50,7 @@ Template.nationalVote.helpers({
   },
   seat: function(){
 
-    return seat.find() 
+    return admin.find({data:"seat"},{"seats":true})
   }
   
 
