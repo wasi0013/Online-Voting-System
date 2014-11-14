@@ -146,11 +146,25 @@ Template.nationalVote.events({
 
             partyname=template.find("#team-name").value
             seatname=template.find("#seat-name").value
-            voterid=template.find("#c-username").value
+            voterid=template.find("#candidate-username").value
+            
+
+              if ((Meteor.user()!=null?(Meteor.user().username ==voterid):false) && voterid !=undefined && voterid!="" && (nationalvote.find()!=null?(nationalvote.find({username:voterid}).count()==0):false)){
+
             console.log("Registering candidate")
             Meteor.call("nationalvote_insert",{"username":voterid,"seatname":seatname,"partyname":partyname,"votecount":0})
             console.log("success")
+            alert("You are now registered as a candidate!");
+            
 
+        }
+        else{
+
+            alert("Registration error: Not logged in or already registered")
+            console.log("registration Error: already registered")
+        }
+
+            
 
 
 
@@ -159,9 +173,20 @@ Template.nationalVote.events({
 
             partyname=template.find("#c-teamname").value
             voterid=template.find("#c-username").value
+            if(Meteor.user()==null){
+                alert("Not Logged in")
+            }
+            else if(Meteor.user().username!=voterid || voterid==undefined || voterid==""){
+                alert("Error: Mismatch Invalid voter id")
+            }
+            else if(!(party.find()!=null?(party.find({username:voterid}).count()==0 && party.find({"partyname":partyname}).count()==0):false)){
+                alert("already registered")
+            }
+            else{
             console.log("Registering party")
             Meteor.call("party_insert",{"username":voterid,"partyname":partyname,"votecount":0})
             console.log("success")
+            }
 
 
 
@@ -169,7 +194,37 @@ Template.nationalVote.events({
         },
 
         'click #ok' : function (evt,template){
-            bootbox.alert()
+            evt.preventDefault()
+            if(Meteor.user()==null) bootbox.alert("Error: Login required")
+            else{
+
+            seatname=template.find("#seats").value
+            lists=' <select class="btn btn-default" required id="candidate-list">'
+            nationalvote.find({"seatname":seatname}).forEach(function(data){
+                lists+='<option>'+data.username+"</option>"
+
+            })
+            lists+="</select>"
+            
+            bootbox.dialog({
+                title: "Cast your  Vote",
+                message: '<label class="col-md-4 control-label" for="candidate">Choose Candidate: </label> ' +lists,
+
+                buttons: {
+                    success: {
+                        label: "Vote",
+                        className: "btn-success",
+                        callback: function () {
+                            votersid = $('#candidate-list').val();
+                            Meteor.call("nationalvote_update",{"username":votersid},{$inc:{votecount:1}})
+                            Meteor.call("nationalvoter_insert",{"username":Meteor.user().username})
+                            console.log("success")
+                        }
+                    }
+
+            }
+        })
+        }
 
         },
         
