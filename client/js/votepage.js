@@ -123,7 +123,7 @@ Template.nationalVote.events({
     },
      'click #reset-vote': function (evt,template){
         //not tested yet
-        bootbox.confirm("Are you sure want to reset National Vote?",function(result) {
+        bootbox.confirm("<h3 class='text-danger'>Are you sure want to reset National Vote?</h3>",function(result) {
             if(result){
         evt.preventDefault()
         admins= admin.find({votename:"nationalvote"}).fetch()[0]
@@ -136,7 +136,7 @@ Template.nationalVote.events({
         Meteor.call("party_remove",{})
 
         console.log("National vote aborted")
-        alert("National Vote Aborted")
+        bootbox.alert("<h3 class='text-warning'>National Vote Aborted!</h3>")
         location.reload()
         }
         })
@@ -154,13 +154,13 @@ Template.nationalVote.events({
             console.log("Registering candidate")
             Meteor.call("nationalvote_insert",{"username":voterid,"seatname":seatname,"partyname":partyname,"votecount":0})
             console.log("success")
-            alert("You are now registered as a candidate!");
+            bootbox.alert("<h3><p class='text-success'>You are now registered as a candidate!</p></h3>");
             
 
         }
         else{
 
-            alert("Registration error: Not logged in or already registered")
+            bootbox.alert("<h3><p class='text-danger'>Registration error: Not logged in or already registered</p></h3>")
             console.log("registration Error: already registered")
         }
 
@@ -174,13 +174,13 @@ Template.nationalVote.events({
             partyname=template.find("#c-teamname").value
             voterid=template.find("#c-username").value
             if(Meteor.user()==null){
-                alert("Not Logged in")
+                bootbox.alert("<h3><p class='text-danger'>Error: Not Logged in</p></h3>")
             }
             else if(Meteor.user().username!=voterid || voterid==undefined || voterid==""){
-                alert("Error: Mismatch Invalid voter id")
+                bootbox.alert("<h3> <p class='text-danger'>Error: Mismatch Invalid voter id</p></h3>")
             }
             else if(!(party.find()!=null?(party.find({username:voterid}).count()==0 && party.find({"partyname":partyname}).count()==0):false)){
-                alert("already registered")
+                bootbox.alert("<h3> <p class='text-danger'>Error: Party/Party Leader already registered!</p></h3>")
             }
             else{
             console.log("Registering party")
@@ -196,6 +196,9 @@ Template.nationalVote.events({
         'click #ok' : function (evt,template){
             evt.preventDefault()
             if(Meteor.user()==null) bootbox.alert("Error: Login required")
+            else if(nationalvoter.find({username:Meteor.user().username}).count()!=0){
+                bootbox.alert("<h3><p class='text-danger'>Error: You already voted!</p></h3>")
+            }
             else{
 
             seatname=template.find("#seats").value

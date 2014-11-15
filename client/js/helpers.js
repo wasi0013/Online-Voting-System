@@ -20,13 +20,23 @@ Template.quickVote.helpers({
   quickstatus: function(){
     
     return admin.findOne({"votename":"quickvote"})["status"]=="off";
-  }
+  },
 
 
 
   
 
 })
+Template.quickstats.helpers({
+  winner: function(){
+    winners=quickvote.find({},{sort:{votecount:-1},limit:1}).fetch()[0]
+    return  userinfo.find({username:winners.username})
+  }
+
+
+
+})
+
 
 Template.nationalVote.helpers({ 
 
@@ -51,6 +61,10 @@ Template.nationalVote.helpers({
   seat: function(){
 
     return admin.find({data:"seat"},{"seats":true})
+  },
+  nationalvote:function(){
+
+    return nationalvote.find({},{votecount:false})
   }
   
 
