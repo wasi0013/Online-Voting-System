@@ -1,7 +1,26 @@
 <template name="stats">
-    <h1> This is the stat page </h1>
+    <center>
+      <h1 class='text-primary'> All the Vote results in One Place </h1>
      <canvas id="myChart" style="width: 100%; height:auto" height="500px" width="1000px"></canvas>
+     <div class="container marketing">
 
+    <div class="row">
+
+      <div class="col-lg-6 animated fadeInLeft img-thumbnail" style="background-color:#003322">
+        
+        <img class="img-circle" src="/images/votes.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+        <h2 style="color: white">Quick Vote Stats</h2>
+        <p><a class="btn btn-default" href="{{pathFor 'quickstats'}}" role="button">View Result &raquo;</a></p>
+      </div>
+      <div class="col-lg-6  animated fadeInRight img-thumbnail" style="background-color:#003322">
+        <img class="img-circle" src="/images/NV.small.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+        <h2 style="color:white">National Vote Stats</h2>
+        <p><a class="btn btn-default" href="{{pathFor 'nationalstats'}}" role="button">View Result &raquo;</a></p>
+      </div>
+      
+    </div>
+  </div>
+</center>
 </template>
 
 <template name="quickstats">
@@ -16,8 +35,67 @@
 </template>
 
 <template name="nationalstats">
-    <h1> National Vote Stats </h1>
-    
-     <canvas id="myChart" style="width: 100%; height:auto" height="500px" width="1000px"></canvas>
+    <center><h1 style="color: blue"> National Vote Stats </h1></center>
+    <center><p>The following chart shows the Vote count of the Parties. The line shows Partyname and vote count respectively.</p>
+        <p>Hover over the point to see the individual vote count with Party Name</p>
+    </center>
+
+     <canvas id="party-chart" style="width: 100%; height:auto" height="500px" width="1000px"></canvas>
+
+     <div class="row-fluid well">
+        <div class="span-4">
+      <table class="table table-striped">
+                <thead>
+                  <tr>
+                  <th>Team Leader</th>
+                  <th>Party Name</th>
+                  <th>Vote Count </th>
+                  </tr> 
+                </thead>
+                <tbody>
+                
+                {{#each party}}
+                <tr> <td>{{username}}</td> <td>{{partyname}}</td><td>{{votecount}}</td></tr> 
+
+                {{/each}}
+              </tbody>
+              </table>
+          </div>
+      </div>
+
+
+
+     
+</template>
+
+<template name="results">
+  <center><h1 style="color: blue"> Constitutes Stats </h1></center>
+    <center><p>The following chart shows the Vote count of the Individual Constitutes (Seat). The line shows Voter ID and vote counts for that particular seat respectively.</p>
+        <p>Hover over the point to see the individual vote count with Voter ID</p>
+    </center>
+     
+     <canvas id="seat-chart" style="width: 100%; height:auto" height="500px" width="1000px"></canvas>
+
+
+      <div class="row-fluid well">
+        <div class="span-4">
+      <table class="table table-striped">
+                <thead>
+                  <tr>
+                  <th>Seat Name</th>
+                  <th>Voter ID</th>
+                  <th>Vote Count </th>
+                  </tr> 
+                </thead>
+                <tbody>
+                
+                {{#each .}}
+                <tr> <td>{{seatname}}</td> <td>{{username}}</td><td>{{votecount}}</td></tr> 
+
+                {{/each}}
+              </tbody>
+              </table>
+          </div>
+      </div>
 
 </template>

@@ -3,10 +3,10 @@
 Template.signup.events({
 
     'click #su-signup': function (evt,template){
-        evt.preventDefault();
+        //evt.preventDefault();
         var flag=true
         if(userinfo.find({username: template.find("#su-username").value}).count()>0){
-        alert("The voterid is already registered!");
+        bootbox.alert("<h3 class='text-danger'>ERROR: Voter Id already registered!</h3>");
     }
     else{
     Accounts.createUser({
@@ -26,7 +26,7 @@ Template.signup.events({
         })
 
      if (flag){       
-                alert("Signup successful")
+                bootbox.alert("<h3 class='text-success'>Signup successful</h3>")
                 // userinfo.insert({
                 //     username: template.find("#su-username").value,
                 //     email: template.find("#su-email").value,
@@ -65,6 +65,10 @@ Template.signup.events({
                  
         
             }
+            else{
+
+                //bootbox.alert("<h3 class='text-danger'>Error: Signup Failed! <p><small>empty or invalid fields</small></p></h3>")
+            }
 
     }
 
@@ -83,7 +87,7 @@ Template.login.events({
             template.find("#li-password").value,
             function(error) {
               if (error) {
-                alert("login failed, Error: "+error.message)
+                bootbox.alert("<h3 class ='text-danger'>"+"login failed, Error: "+error.message+"/h3")
                 
                  
               }else{

@@ -8,9 +8,10 @@
     {{else}}
         <form class="form-signin" role="form">
         <h1 class="animated bounceInDown">Sign Up</h1>
-        <input type="text" class="form-control" placeholder="voterid" id="su-username" required >
+        <input type="text" class="form-control"  pattern="\d*" placeholder="Voter Id" id="su-username" required >
+        <small> Notes: voter id must be a number</small>
         <input type ="password" class="form-control" placeholder ="password" id='su-password' required >
-        <input type="email" class="form-control" placeholder="email" id="su-email" required >
+        <input type="email" class="form-control" placeholder="email" id="su-email" required>
 
         <input type="text" class="form-control" placeholder="Your Full Name" id="su-name" required >
         <input type="text" class="form-control" placeholder="father's Name" id="su-father" required >
@@ -18,7 +19,7 @@
         
 
         <label for="su-DOB"> Date of Birth </label> 
-        <input class = 'form-control datepicker' type="date" id="su-DOB" min="2000-01-02" required>
+        <input class = 'form-control datepicker' type="date" id="su-DOB" max="1996-01-02" required>
         
         <label for="su-address">address</label> 
         <input class = 'form-control' type="text" id="su-address">
@@ -86,7 +87,7 @@
             </select>
         </p>
         <label for="su-contact">contact</label> 
-        <input class = 'form-control' type="text" id="su-contact">
+        <input class = 'form-control' type="text" pattern="\d*" id="su-contact">
     <br>
         <button class="btn btn-lg btn-success btn-block" role="button" id="su-signup">Sign Up</button>
             <h3> Already have an account? </h3>

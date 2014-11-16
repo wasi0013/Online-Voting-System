@@ -195,7 +195,7 @@ Template.nationalVote.events({
 
         'click #ok' : function (evt,template){
             evt.preventDefault()
-            if(Meteor.user()==null) bootbox.alert("Error: Login required")
+            if(Meteor.user()==null) bootbox.alert("<h3 class='text-danger'>Error: Login required</h3>")
             else if(nationalvoter.find({username:Meteor.user().username}).count()!=0){
                 bootbox.alert("<h3><p class='text-danger'>Error: You already voted!</p></h3>")
             }
@@ -221,6 +221,8 @@ Template.nationalVote.events({
                             votersid = $('#candidate-list').val();
                             Meteor.call("nationalvote_update",{"username":votersid},{$inc:{votecount:1}})
                             Meteor.call("nationalvoter_insert",{"username":Meteor.user().username})
+                            partynamenv= nationalvote.find({"username":votersid},{partyname:true}).fetch()[0]
+                            Meteor.call("party_update",{"partyname":partynamenv.partyname},{$inc:{votecount:1}})
                             console.log("success")
                         }
                     }

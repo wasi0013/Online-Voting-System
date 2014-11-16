@@ -37,6 +37,13 @@ Template.quickstats.helpers({
 
 })
 
+Template.nationalstats.helpers({
+
+  party: function(){
+    return party.find()
+  }
+
+})
 
 Template.nationalVote.helpers({ 
 
