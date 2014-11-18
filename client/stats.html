@@ -41,7 +41,7 @@
     </center>
 
      <canvas id="party-chart" style="width: 100%; height:auto" height="500px" width="1000px"></canvas>
-
+     <center> <h3 style="color:green"> Party Result </h3></center>
      <div class="row-fluid well">
         <div class="span-4">
       <table class="table table-striped">
@@ -56,6 +56,29 @@
                 
                 {{#each party}}
                 <tr> <td>{{username}}</td> <td>{{partyname}}</td><td>{{votecount}}</td></tr> 
+
+                {{/each}}
+              </tbody>
+              </table>
+          </div>
+      </div>
+
+      <center> <h3 style="color:red"> Full Result </h3></center>
+     <div class="row-fluid well">
+        <div class="span-4">
+      <table class="table table-striped">
+                <thead>
+                  <tr>
+                  <th>Voter Id</th>
+                  <th>Party Name</th>
+                  <th> Seat Name </th>
+                  <th>Vote Count </th>
+                  </tr> 
+                </thead>
+                <tbody>
+                
+                {{#each people}}
+                <tr> <td>{{username}}</td><td>{{partyname}}</td><td>{{seatname}}</td><td>{{votecount}}</td></tr> 
 
                 {{/each}}
               </tbody>

@@ -87,7 +87,7 @@ Template.login.events({
             template.find("#li-password").value,
             function(error) {
               if (error) {
-                bootbox.alert("<h3 class ='text-danger'>"+"login failed, Error: "+error.message+"/h3")
+                bootbox.alert("<h3 class ='text-danger'>"+"login failed, Error: "+error.message+"</h3")
                 
                  
               }else{

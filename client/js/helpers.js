@@ -41,6 +41,9 @@ Template.nationalstats.helpers({
 
   party: function(){
     return party.find()
+  },
+  people:function(){
+    return nationalvote.find({},{_id:false,sort:{seatnname:-1,votecount:-1}})
   }
 
 })

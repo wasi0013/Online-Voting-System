@@ -66,6 +66,9 @@ Meteor.methods({
     nationalvote_update:function(query,data){
         return nationalvote.update(query,data)
     },
+    party_update: function(query,data){
+        return party.update(query,update)
+    }
 
 
 })

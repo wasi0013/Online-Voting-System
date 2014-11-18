@@ -8,14 +8,14 @@ Template.quickVote.events({
             //quickvote.insert({username:usern, votecount:0 });
             Meteor.call("quickvote_insert",{username:usern, votecount:0 });
             
-            alert("You are now registered as a candidate!");
+            bootbox.alert("<h3 class='text-success'> You are now registered as a candidate!</h3>");
             console.log("You are now registered as a candidate!")
 
 
         }
         else{
 
-            alert("Registration error: Not logged in or already registered")
+            bootbox.alert("<h3 class='text-success'>Registration error: Not logged in or already registered </h3>")
             console.log("registration Error: already registered")
         }
     },
@@ -53,8 +53,8 @@ Template.quickVote.events({
         Meteor.call("quickvote_remove",{})
         Meteor.call("quickvoter_remove",{})
 
-        console.log("quick vote aborted")
-        alert("Quick Vote Aborted")
+        console.log("quick vote reseted")
+        alert("Quick Vote Reseted")
         location.reload()
         }
 
@@ -136,7 +136,7 @@ Template.nationalVote.events({
         Meteor.call("party_remove",{})
 
         console.log("National vote aborted")
-        bootbox.alert("<h3 class='text-warning'>National Vote Aborted!</h3>")
+        bootbox.alert("<h3 class='text-warning'>National Vote reseted!</h3>")
         location.reload()
         }
         })
